@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MovieCard: View {
+struct MovieCardView: View {
   
   private var movie: Movie
   
@@ -32,7 +32,7 @@ struct MovieCard: View {
           .font(.body2)
           .lineLimit(1)
         HStack {
-          Text("2021")
+          Text(movie.releaseDateYear)
             .font(.caption1)
             .foregroundColor(.secondaryText)
           Spacer()
@@ -52,9 +52,49 @@ struct MovieCard: View {
   }
 }
 
+
+
+struct RedactedMovieCardView: View {
+  
+  var body: some View {
+    VStack(alignment: .leading) {
+      Image("spiderman")
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(width: 152, height: 204)
+        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+        .redacted(reason: .placeholder)
+      
+      VStack(alignment: .leading, spacing: 4) {
+        Text("               ")
+          .foregroundColor(.primaryText)
+          .font(.body2)
+          .lineLimit(1)
+        HStack {
+          Text("2021")
+            .font(.caption1)
+            .foregroundColor(.secondaryText)
+          Spacer()
+          HStack(spacing: 2) {
+            Image("star")
+              .resizable()
+              .frame(width: 13, height: 13)
+              .foregroundColor(.mainOrange)
+            Text("    ")
+              .font(.caption1)
+              .foregroundColor(.secondaryText)
+          }
+        }
+      }
+    }
+    .frame(maxWidth: 152)
+    .redacted(reason: .placeholder)
+  }
+}
+
 struct MovieCard_Previews: PreviewProvider {
   static var previews: some View {
-    MovieCard(movie: Movie(id: 1, title: "Spider man", posterPath: "", voteAverage: 5.6, overview: ""))
+    MovieCardView(movie: Movie(id: 1, title: "Spider man", posterPath: "", vote: 5.6, releaseDateString: Date().description, overview: ""))
       .preferredColorScheme(.dark)
   }
 }
