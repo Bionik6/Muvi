@@ -1,10 +1,3 @@
-//
-//  Persistence.swift
-//  Muvi
-//
-//  Created by Ibrahima Ciss on 23/03/2022.
-//
-
 import CoreData
 
 struct PersistenceController {
