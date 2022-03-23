@@ -95,6 +95,7 @@
 		4045E47327EBA42E00FBF3C2 /* Responses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responses.swift; sourceTree = "<group>"; };
 		4045E47927EBA42F00FBF3C2 /* ErrorResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponses.swift; sourceTree = "<group>"; };
 		4045E48227EBA4A600FBF3C2 /* RemoteMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMovie.swift; sourceTree = "<group>"; };
+		4045E48827EBD0E100FBF3C2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +210,7 @@
 			children = (
 				4045E41827EAFE4B00FBF3C2 /* Assets.xcassets */,
 				4045E44E27EB1A7B00FBF3C2 /* fonts */,
+				4045E48827EBD0E100FBF3C2 /* Config.xcconfig */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
