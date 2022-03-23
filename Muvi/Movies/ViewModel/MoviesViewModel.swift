@@ -1,9 +1,48 @@
 import Combine
 import Foundation
 
+struct RemoteMovieDataSource {
+  private let upcomingMovies: () async throws -> MoviesResponse
+  private let trendingMovies: () async throws -> MoviesResponse
+  private let latestMovies: () async throws -> MoviesResponse
+  private let popularMovies: () async throws -> MoviesResponse
+  
+  init(
+    upcomingMovies: @escaping () async throws -> MoviesResponse,
+    trendingMovies: @escaping () async throws -> MoviesResponse,
+    latestMovies: @escaping () async throws -> MoviesResponse,
+    popularMovies: @escaping () async throws -> MoviesResponse
+  ) {
+    self.upcomingMovies = upcomingMovies
+    self.trendingMovies = trendingMovies
+    self.latestMovies = latestMovies
+    self.popularMovies = popularMovies
+  }
+  
+   public static let live = Self(
+    upcomingMovies: {
+      let request = Request(path: "movie/upcoming", method: .get)
+      return try await Self.make
+    },
+    trendingMovies: <#T##() async throws -> MoviesResponse#>,
+    latestMovies: <#T##() async throws -> MoviesResponse#>,
+    popularMovies: <#T##() async throws -> MoviesResponse#>
+  )
+}
+
+struct MovieRepository {
+  
+}
+
+
 extension String: Error { }
 
 final class MoviesViewModel: ObservableObject {
+  
+  private var API_KEY: String {
+    guard let key = Bundle.main.infoDictionary?["API_KEY"] as? String else { fatalError("api key couldn't be found") }
+    return key
+  }
   
   @Published var comingSoonMovies: [Movie] = []
   @Published var trendingMovies: [Movie] = []
@@ -23,7 +62,7 @@ final class MoviesViewModel: ObservableObject {
   }
   
   @MainActor private func fetchComingSoonMovies() async throws -> [Movie] {
-    let (data, response) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/movie/upcoming?api_key=6af44fa099a2a0b65cabbcdac0236571")!)
+    let (data, response) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/movie/upcoming?api_key=\(API_KEY)")!)
     if let response = response as? HTTPURLResponse {
       if response.statusCode == 401 { throw "Not Authorized" }
       if 400...599 ~= response.statusCode { throw "Something bad happens" }
@@ -33,7 +72,7 @@ final class MoviesViewModel: ObservableObject {
   }
   
   @MainActor private func fetchTrendingMovies() async throws -> [Movie] {
-    let (data, response) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/trending/all/week?api_key=6af44fa099a2a0b65cabbcdac0236571")!)
+    let (data, response) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/trending/all/week?api_key=\(API_KEY)")!)
     if let response = response as? HTTPURLResponse {
       if response.statusCode == 401 { throw "Not Authorized" }
       if 400...599 ~= response.statusCode { throw "Something bad happens" }
@@ -45,7 +84,7 @@ final class MoviesViewModel: ObservableObject {
   }
   
   @MainActor private func fetchLatestMovies() async throws -> [Movie] {
-    let (data, response) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=6af44fa099a2a0b65cabbcdac0236571")!)
+    let (data, response) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=\(API_KEY)")!)
     if let response = response as? HTTPURLResponse {
       if response.statusCode == 401 { throw "Not Authorized" }
       if 400...599 ~= response.statusCode { throw "Something bad happens" }
@@ -57,7 +96,7 @@ final class MoviesViewModel: ObservableObject {
   }
   
   @MainActor private func fetchPopularMovies() async throws -> [Movie] {
-    let (data, response) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=6af44fa099a2a0b65cabbcdac0236571&page=1")!)
+    let (data, response) = try await URLSession.shared.data(from: URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=\(API_KEY)&page=1")!)
     if let response = response as? HTTPURLResponse {
       if response.statusCode == 401 { throw "Not Authorized" }
       if 400...599 ~= response.statusCode { throw "Something bad happens" }

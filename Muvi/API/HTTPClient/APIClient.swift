@@ -5,7 +5,7 @@ import Foundation
 public struct APIClient {
   private var token: String?
   private var session: URLSession
-  private var baseURLString: NSString { "https://charabia.app/api/v1/" }
+  private var baseURLString: NSString { "https://api.themoviedb.org/3/" }
   
   public init(
     token: String?,
@@ -19,7 +19,7 @@ public struct APIClient {
     let sessionRequest = prepareURLRequest(for: request)
     let (data, response) = try await session.data(for: sessionRequest)
     if let response = response as? HTTPURLResponse {
-      if response.statusCode == 401 { NotificationCenter.default.post(Notification(name: Notification.Name("TOKEN_NOT_PROVIDED"))); throw NetworkError.serverError }
+      if response.statusCode == 401 { throw NetworkError.unauthorized }
       if 400...599 ~= response.statusCode { throw NetworkError.serverError }
     }
     if let backendErrorObject = try? self.decoder.decode(BackendErrorResponse.self, from: data) { throw NetworkError.backendError(backendErrorObject.error) }
@@ -27,7 +27,8 @@ public struct APIClient {
     return object
   }
   
-  func prepareURLRequest<E: Encodable>(for request: Request<E>) -> URLRequest {
+  private func prepareURLRequest<E: Encodable>(for request: Request<E>) -> URLRequest {
+    
     let fullURLString = baseURLString.appendingPathComponent(request.path)
     guard let url = URL(string: fullURLString) else { fatalError("The URL is not valid") }
     
@@ -38,55 +39,19 @@ public struct APIClient {
     if let headers = request.headers { headers.forEach { urlRequest.addValue($0.value , forHTTPHeaderField: $0.key) } }
     urlRequest.addValue("application/json;charset=utf-8", forHTTPHeaderField: "Accept")
     urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
-    if let token = token { urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization") }
+    
+    guard let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String else { fatalError("api key couldn't be found") }
+    
+    guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { fatalError("components can't be created") }
+    components.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
+    urlRequest.url = components.url
     
     return urlRequest
   }
   
-  
-  public func uploadImage<D: Decodable, E: Encodable>(
-    _ file: Data,
-    imageKey: String,
-    fileName: String,
-    additionalData: [String: Any]?,
-    request: Request<E>,
-    completion: @escaping (Result<D, NetworkError>)->()
-  ) {
-    let fullURLString = baseURLString.appendingPathComponent(request.path)
-    guard let url = URL(string: fullURLString) else { fatalError("The URL is not valid") }
-    var urlRequest = URLRequest(url: url)
-    var multipartData = MultipartForm()
-    
-    if let data = additionalData {
-      data.forEach { multipartData.append(value: $0.value as? String ?? "", forKey: $0.key)  }
-    }
-    
-    do {
-      multipartData.append(data: file, forKey: imageKey, fileName: fileName, mimeType: "image/jpg")
-      let data = try multipartData.encode()
-      urlRequest.httpBody = data
-    } catch let e { fatalError(e.localizedDescription) }
-    
-    if let headers = request.headers { headers.forEach { urlRequest.addValue($0.value , forHTTPHeaderField: $0.key) } }
-    urlRequest.addValue("application/json;charset=utf-8", forHTTPHeaderField: "Accept")
-    urlRequest.addValue("multipart/form-data; boundary=\(multipartData.boundary)", forHTTPHeaderField: "Content-Type")
-    if let token = token { urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization") }
-    
-    urlRequest.httpMethod = request.method.rawValue
-    
-    let task = session.dataTask(with: urlRequest) { (data, response, error) in
-      guard let data = data else { completion(.failure(.notDetermined)); return }
-      (try? self.decoder.decode(BackendErrorResponse.self, from: data)).map { completion(.failure(.backendError($0.error))); return }
-      (try? self.decoder.decode(D.self, from: data)).map { completion(.success($0)); return }
-    }
-    
-    task.resume()
-    session.finishTasksAndInvalidate()
-  }
-  
   private var decoder: JSONDecoder {
     let decoder = JSONDecoder()
-    decoder.dateDecodingStrategy = .iso8601
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
     return decoder
   }
 }

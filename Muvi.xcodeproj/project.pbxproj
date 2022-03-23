@@ -153,8 +153,7 @@
 				4045E44327EB063500FBF3C2 /* Movies */,
 				4045E41427EAFE4A00FBF3C2 /* MuviApp.swift */,
 				4045E41627EAFE4A00FBF3C2 /* ContentView.swift */,
-				4045E41D27EAFE4B00FBF3C2 /* Persistence.swift */,
-				4045E41F27EAFE4B00FBF3C2 /* Muvi.xcdatamodeld */,
+				4045E48627EBA51600FBF3C2 /* Storage */,
 				4045E41A27EAFE4B00FBF3C2 /* Preview Content */,
 			);
 			path = Muvi;
@@ -290,6 +289,15 @@
 				4045E48227EBA4A600FBF3C2 /* RemoteMovie.swift */,
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		4045E48627EBA51600FBF3C2 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				4045E41D27EAFE4B00FBF3C2 /* Persistence.swift */,
+				4045E41F27EAFE4B00FBF3C2 /* Muvi.xcdatamodeld */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

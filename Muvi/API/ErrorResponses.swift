@@ -33,7 +33,11 @@ public enum NetworkError: LocalizedError, Equatable {
     switch self {
       case .noInternetConnectivity:
         return "Please verify your internet connectivity."
-      case .serverError, .unauthorized, .unprocessableData, .notDetermined:
+      case .unauthorized:
+        return "API Key not valid or not provided"
+      case .unprocessableData:
+        return "Cannot decode data"
+      case .serverError, .notDetermined:
         return "Something wrong happens, please retry later."
       default: return nil
     }
