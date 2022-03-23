@@ -3,19 +3,14 @@ import Foundation
 
 
 public struct APIClient {
-  private var token: String?
   private var session: URLSession
   private var baseURLString: NSString { "https://api.themoviedb.org/3/" }
   
-  public init(
-    token: String?,
-    session: URLSession = .shared
-  ) {
-    self.token = token
+  public init(session: URLSession = .shared) {
     self.session = session
   }
   
-  public func execute<D: BackendResponse, E: Encodable>(request: Request<E>) async throws -> D {
+  public func execute<D: Decodable>(request: Request) async throws -> D {
     let sessionRequest = prepareURLRequest(for: request)
     let (data, response) = try await session.data(for: sessionRequest)
     if let response = response as? HTTPURLResponse {
@@ -27,14 +22,14 @@ public struct APIClient {
     return object
   }
   
-  private func prepareURLRequest<E: Encodable>(for request: Request<E>) -> URLRequest {
-    
+  private func prepareURLRequest(for request: Request) -> URLRequest {
     let fullURLString = baseURLString.appendingPathComponent(request.path)
     guard let url = URL(string: fullURLString) else { fatalError("The URL is not valid") }
     
     var urlRequest = URLRequest(url: url)
     urlRequest.httpMethod = request.method.rawValue
-    request.params.map { urlRequest.httpBody = try? JSONEncoder().encode($0) }
+//    if let params = request.params { }
+//    request.params.map { urlRequest.httpBody = try? JSONEncoder().encode($0) }
     
     if let headers = request.headers { headers.forEach { urlRequest.addValue($0.value , forHTTPHeaderField: $0.key) } }
     urlRequest.addValue("application/json;charset=utf-8", forHTTPHeaderField: "Accept")

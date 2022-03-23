@@ -7,7 +7,7 @@ enum CardType {
 }
 
 struct MoviesView: View {
-  @StateObject private var viewModel = MoviesViewModel()
+  @StateObject private var viewModel = MoviesViewModel(repository: .init())
   
   var body: some View {
     
