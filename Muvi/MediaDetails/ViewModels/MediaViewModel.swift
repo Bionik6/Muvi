@@ -14,15 +14,13 @@ class MediaDetailsViewModel: ObservableObject {
   }
   
   @MainActor func fetchAllMediaDetails() async throws {
-    print(media.id)
     async let mediaDetails = await repository.fetchMediaDetails(id: media.id)
     async let cast = await repository.fetchMediaCast(id: media.id)
     async let clips = await repository.fetchMediaClips(id: media.id)
     let result = try await (mediaDetails: mediaDetails, cast: cast, clips: clips)
     self.genres = result.mediaDetails.genres
-    self.cast = result.cast
+    self.cast = result.cast.lazy.filter { $0.profileImagePath != nil}.sorted { $0.order < $1.order }
     self.clips = result.clips
-    
   }
 }
 

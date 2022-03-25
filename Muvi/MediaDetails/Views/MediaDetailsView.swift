@@ -2,8 +2,10 @@ import SwiftUI
 
 struct MediaDetailsView: View {
   
-  @Environment(\.presentationMode) private var presentationMode
+  @State private var selection: Int = 1
   @ObservedObject var viewModel: MediaDetailsViewModel
+  @Environment(\.presentationMode) private var presentationMode
+  var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
   
   var body: some View {
     ScrollView {
@@ -75,6 +77,29 @@ struct MediaDetailsView: View {
         .font(.body2)
         .lineSpacing(6)
         .padding(.all, 16)
+      
+      
+      Picker("", selection: self.$selection) {
+        Text("Cast").tag(1)
+        Text("Clips").tag(2)
+      }
+      .pickerStyle(.segmented)
+      .padding(.horizontal, 16)
+      
+      VStack {
+        switch selection {
+          case 1:
+            ScrollView {
+              LazyVGrid(columns: gridItemLayout, spacing: 20) {
+                ForEach(viewModel.cast, id: \.id) { cast in
+                  ActorView(actor: cast)
+                }
+              }
+            }.padding(.top, 16)
+          case 2: Text("Hello V2")
+          default: EmptyView()
+        }
+      }
       
       
     }

@@ -53,6 +53,7 @@
 		40B154EB27EE16300022CA01 /* RemoteSerieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154EA27EE16300022CA01 /* RemoteSerieDetails.swift */; };
 		40B154ED27EE1B7F0022CA01 /* MediaDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154EC27EE1B7F0022CA01 /* MediaDetails.swift */; };
 		40B154EF27EE206A0022CA01 /* MediaDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */; };
+		40B154F127EE5E2F0022CA01 /* ActorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154F027EE5E2F0022CA01 /* ActorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		40B154EA27EE16300022CA01 /* RemoteSerieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSerieDetails.swift; sourceTree = "<group>"; };
 		40B154EC27EE1B7F0022CA01 /* MediaDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetails.swift; sourceTree = "<group>"; };
 		40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailsView.swift; sourceTree = "<group>"; };
+		40B154F027EE5E2F0022CA01 /* ActorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -355,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */,
+				40B154F027EE5E2F0022CA01 /* ActorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				4045E48327EBA4A600FBF3C2 /* RemoteMovie.swift in Sources */,
 				4045E47E27EBA43800FBF3C2 /* APIClient.swift in Sources */,
 				4045E48027EBA43D00FBF3C2 /* Mocks.swift in Sources */,
+				40B154F127EE5E2F0022CA01 /* ActorView.swift in Sources */,
 				40B154E727EE0C160022CA01 /* RemoteClip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

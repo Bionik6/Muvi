@@ -30,7 +30,7 @@ extension Font {
   }
   
   public static var title3: Font {
-    return .inter(.semiBold, size: 16)
+    return .inter(.semiBold, size: 14)
   }
   
   public static var body1: Font {
