@@ -19,10 +19,10 @@ final class SeriesViewModel: ObservableObject {
     async let topRatedSeries = await repository.fetchTopRatedSeries()
     async let popularSeries = await repository.fetchPopularMovies()
     let result = try await (airingTodaySeries: airingTodaySeries, trendingSeries: trendingSeries, topRatedSeries: topRatedSeries, popularSeries: popularSeries)
-    self.airingTodaySeries = result.airingTodaySeries.lazy.sorted { $0.releaseDate > $1.releaseDate }
-    self.trendingSeries = result.trendingSeries.lazy.sorted { $0.releaseDate > $1.releaseDate }
-    self.topRatedSeries = result.topRatedSeries.lazy.sorted { $0.releaseDate > $1.releaseDate }
-    self.popularSeries = result.popularSeries.lazy.sorted { $0.releaseDate > $1.releaseDate }
+    self.airingTodaySeries = result.airingTodaySeries.sequentially()
+    self.trendingSeries = result.trendingSeries.lazy.filter { $0.posterPath != nil }.sorted { $0.releaseDate > $1.releaseDate }
+    self.topRatedSeries = result.topRatedSeries.lazy.filter { $0.posterPath != nil }.sorted { $0.releaseDate > $1.releaseDate }
+    self.popularSeries = result.popularSeries.lazy.filter { $0.posterPath != nil }.sorted { $0.releaseDate > $1.releaseDate }
   }
 }
 

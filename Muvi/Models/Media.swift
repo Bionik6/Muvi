@@ -5,11 +5,10 @@ enum MediaType {
   case serie
 }
 
-
 protocol Media {
   var id: Int { get }
   var title: String { get }
-  var posterPath: String { get }
+  var posterPath: String? { get }
   var vote: Double { get }
   var releaseDateString: String { get }
   var overview: String { get }
@@ -28,7 +27,18 @@ extension Media {
   
   var posterURL: URL {
     guard var url = URL(string: "https://image.tmdb.org/t/p/w200") else { fatalError("URL can't be constructed") }
-    url.appendPathComponent(posterPath)
+    url.appendPathComponent(posterPath ?? "")
     return url
+  }
+}
+
+
+extension Sequence where Element: Media {
+  func sequentially() -> [Movie] {
+    self.lazy.filter { $0.posterPath != nil }.sorted { $0.releaseDate > $1.releaseDate } as! [Movie]
+  }
+  
+  func sequentially() -> [Serie] {
+    self.lazy.filter { $0.posterPath != nil }.sorted { $0.releaseDate > $1.releaseDate } as! [Serie]
   }
 }

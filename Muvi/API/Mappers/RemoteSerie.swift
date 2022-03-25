@@ -32,7 +32,7 @@ struct RemoteSerie: Decodable {
     return Serie(
       id: id,
       title: name ?? "Unknow Serie",
-      posterPath: posterPath ?? "",
+      posterPath: posterPath,
       vote: voteAverage,
       releaseDateString: releaseDate ?? firstAirDate ?? "Today",
       overview: overview
