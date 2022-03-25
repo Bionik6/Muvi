@@ -16,18 +16,6 @@ struct ComingSoonCard: View {
           .aspectRatio(contentMode: .fill)
           .frame(width: 216, height: 122)
           .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-          .overlay {
-            ZStack {
-              Color.black.opacity(0.3)
-              VStack {
-                Image(systemName: "play.circle")
-                  .resizable()
-                  .frame(width: 26, height: 26)
-                Text("Trailer")
-                  .font(.caption1)
-              }
-            }
-          }
       } placeholder: {
         Image("thumbnail")
           .resizable()
@@ -43,7 +31,9 @@ struct ComingSoonCard: View {
           .font(.caption1)
           .foregroundColor(.secondaryText)
       }
-    }.frame(maxWidth: 216)
+    }
+    .frame(maxWidth: 216)
+    .foregroundColor(.white)
   }
 }
 

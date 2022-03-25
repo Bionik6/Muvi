@@ -2,14 +2,25 @@ import Combine
 
 
 class MediaDetailsViewModel: ObservableObject {
-  private let mediaType: MediaType
   private let repository: MediaDetailsRepository
+  private(set) var media: Media
+  @Published private(set) var genres: [String] = []
+  @Published private(set) var cast: [Actor] = []
+  @Published private(set) var clips: [Clip] = []
   
-  init(mediaType: MediaType, repository: MediaDetailsRepository) {
-    self.mediaType = mediaType
+  init(media: Media, repository: MediaDetailsRepository) {
+    self.media = media
     self.repository = repository
   }
   
+  @MainActor func fetchAllMediaDetails() async throws {
+    print(media.id)
+    async let mediaDetails = await repository.fetchMediaDetails(id: media.id)
+    async let cast = await repository.fetchMediaCast(id: media.id)
+    async let clips = await repository.fetchMediaClips(id: media.id)
+    let result = try await (mediaDetails: mediaDetails, cast: cast, clips: clips)
+    print(result)
+  }
 }
 
 
@@ -28,24 +39,24 @@ struct MediaDetailsRepository {
     self.remoteSeriesDetailsDataSource = remoteSeriesDetailsDataSource
   }
   
-  func fetchMediaDetails() async throws -> MediaDetails {
+  func fetchMediaDetails(id: Int) async throws -> MediaDetails {
     switch mediaType {
-      case .movie(let movie): return try await remoteMovieDetailsDataSource.movieDetails(movie.id).model
-      case .serie(let serie): return try await remoteSeriesDetailsDataSource.serieDetails(serie.id).model
+      case .movie: return try await remoteMovieDetailsDataSource.movieDetails(id).model
+      case .serie: return try await remoteSeriesDetailsDataSource.serieDetails(id).model
     }
   }
   
-  func fetchMediaCast() async throws -> [Actor] {
+  func fetchMediaCast(id: Int) async throws -> [Actor] {
     switch mediaType {
-      case .movie(let movie): return try await remoteMovieDetailsDataSource.movieCast(movie.id).cast.compactMap { $0.model }
-      case .serie(let serie): return try await remoteSeriesDetailsDataSource.serieCast(serie.id).cast.compactMap { $0.model }
+      case .movie: return try await remoteMovieDetailsDataSource.movieCast(id).cast.compactMap { $0.model }
+      case .serie: return try await remoteSeriesDetailsDataSource.serieCast(id).cast.compactMap { $0.model }
     }
   }
   
-  func fetchMediaClips() async throws -> [Clip] {
+  func fetchMediaClips(id: Int) async throws -> [Clip] {
     switch mediaType {
-      case .movie(let movie): return try await remoteMovieDetailsDataSource.movieClips(movie.id).results.compactMap { $0.model }
-      case .serie(let serie): return try await remoteSeriesDetailsDataSource.serieClips(serie.id).results.compactMap { $0.model }
+      case .movie: return try await remoteMovieDetailsDataSource.movieClips(id).results.compactMap { $0.model }
+      case .serie: return try await remoteSeriesDetailsDataSource.serieClips(id).results.compactMap { $0.model }
     }
   }
   

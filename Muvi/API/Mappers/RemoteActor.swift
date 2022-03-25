@@ -4,8 +4,8 @@ struct RemoteActor: Decodable {
   let id: Int
   let order: Int
   let originalName: String
-  let character: String
-  let profilePath: String
+  let character: String?
+  let profilePath: String?
   
   var model: Actor {
     Actor(

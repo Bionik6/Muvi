@@ -9,7 +9,10 @@ struct SeriesView: View {
         ScrollView {
           MediaSection(media: viewModel.airingTodaySeries, title: "Airing Today", redactedViewsNumber: 3, type: .landscape) {
             ForEach(viewModel.airingTodaySeries.prefix(8), id: \.id) { serie in
-              ComingSoonCard(media: serie)
+              NavigationLink(
+                destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: serie, repository: .init(mediaType: .serie))),
+                label: { ComingSoonCard(media: serie) }
+              )
             }
           }
           

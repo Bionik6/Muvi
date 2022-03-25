@@ -10,7 +10,10 @@ struct MoviesView: View {
       ScrollView {
         MediaSection(media: viewModel.comingSoonMovies, title: "Coming Soon", redactedViewsNumber: 3, type: .landscape) {
           ForEach(viewModel.comingSoonMovies.prefix(8), id: \.id) { movie in
-            ComingSoonCard(media: movie)
+            NavigationLink(
+              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
+              label: { ComingSoonCard(media: movie) }
+            )
           }
         }
         

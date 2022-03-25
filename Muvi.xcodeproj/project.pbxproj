@@ -52,6 +52,7 @@
 		40B154E727EE0C160022CA01 /* RemoteClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154E627EE0C160022CA01 /* RemoteClip.swift */; };
 		40B154EB27EE16300022CA01 /* RemoteSerieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154EA27EE16300022CA01 /* RemoteSerieDetails.swift */; };
 		40B154ED27EE1B7F0022CA01 /* MediaDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154EC27EE1B7F0022CA01 /* MediaDetails.swift */; };
+		40B154EF27EE206A0022CA01 /* MediaDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		40B154E627EE0C160022CA01 /* RemoteClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteClip.swift; sourceTree = "<group>"; };
 		40B154EA27EE16300022CA01 /* RemoteSerieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSerieDetails.swift; sourceTree = "<group>"; };
 		40B154EC27EE1B7F0022CA01 /* MediaDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetails.swift; sourceTree = "<group>"; };
+		40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 		4045E48C27EDA10900FBF3C2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 				40B154EB27EE16300022CA01 /* RemoteSerieDetails.swift in Sources */,
 				4045E46327EB95BD00FBF3C2 /* MoviesViewModel.swift in Sources */,
 				4045E47B27EBA43800FBF3C2 /* HTTPMethod.swift in Sources */,
+				40B154EF27EE206A0022CA01 /* MediaDetailsView.swift in Sources */,
 				4045E42127EAFE4B00FBF3C2 /* Muvi.xcdatamodeld in Sources */,
 				4045E44A27EB0F9200FBF3C2 /* Actor.swift in Sources */,
 				4045E45927EB1ACC00FBF3C2 /* Fonts.swift in Sources */,

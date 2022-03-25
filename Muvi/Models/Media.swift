@@ -1,8 +1,8 @@
 import Foundation
 
 enum MediaType {
-  case movie(Movie)
-  case serie(Serie)
+  case movie
+  case serie
 }
 
 
