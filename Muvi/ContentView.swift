@@ -15,7 +15,10 @@ struct ContentView: View {
       .tabItem({ TabLabel(imageName: "play.tv.fill", label: "Movies") })
       
       VStack {
-        Text("TV Shows")
+        ZStack {
+          Color.background.edgesIgnoringSafeArea(.all)
+          SeriesView()
+        }
       }
       .tabItem({ TabLabel(imageName: "rectangle.stack.badge.play.fill", label: "TV Shows") })
       

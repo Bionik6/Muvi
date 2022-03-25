@@ -17,7 +17,6 @@ public struct APIClient {
       if response.statusCode == 401 { throw NetworkError.unauthorized }
       if 400...599 ~= response.statusCode { throw NetworkError.serverError }
     }
-    if let backendErrorObject = try? self.decoder.decode(BackendErrorResponse.self, from: data) { throw NetworkError.backendError(backendErrorObject.error) }
     guard let object = try? self.decoder.decode(D.self, from: data) else { throw NetworkError.unprocessableData }
     return object
   }

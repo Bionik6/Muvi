@@ -2,15 +2,15 @@ import SwiftUI
 
 struct ComingSoonCard: View {
  
-  private var movie: Movie
+  private var media: Media
   
-  init(movie: Movie) {
-    self.movie = movie
+  init(media: Media) {
+    self.media = media
   }
   
   var body: some View {
     VStack(alignment: .leading) {
-      AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w200/\(movie.posterPath)")) { image in
+      AsyncImage(url: media.posterURL) { image in
         image
           .resizable()
           .aspectRatio(contentMode: .fill)
@@ -37,9 +37,9 @@ struct ComingSoonCard: View {
       }
       
       VStack(alignment: .leading, spacing: 4) {
-        Text(movie.title)
+        Text(media.title)
           .font(.body2)
-        Text("Releases \(movie.fullFormatedReleaseDate)")
+        Text("Releases \(media.fullFormatedReleaseDate)")
           .font(.caption1)
           .foregroundColor(.secondaryText)
       }
@@ -60,7 +60,7 @@ struct RedactedComingSoonMovieView: View {
       VStack(alignment: .leading, spacing: 4) {
         Text("        ")
           .font(.body2)
-        Text("Releases February 11, 2022")
+        Text("                   ")
           .font(.caption1)
           .foregroundColor(.secondaryText)
       }
@@ -73,7 +73,7 @@ struct RedactedComingSoonMovieView: View {
 struct ComingSoonMovie_Previews: PreviewProvider {
   static var previews: some View {
     
-    ComingSoonCard(movie: Movie(id: 1, title: "Spider man", posterPath: "", vote: 5.6, releaseDateString: Date().description, overview: ""))
+    ComingSoonCard(media: Movie(id: 1, title: "Spider man", posterPath: "", vote: 5.6, releaseDateString: Date().description, overview: ""))
       .preferredColorScheme(.dark)
       .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/216.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/172.0/*@END_MENU_TOKEN@*/))
   }

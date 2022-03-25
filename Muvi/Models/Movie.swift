@@ -1,13 +1,12 @@
 import Foundation
 
-struct Movie {
+struct Movie: Media {
   let id: Int
   let title: String
   let posterPath: String
   let vote: Double
   let releaseDateString: String
   let overview: String
-  var actors: [Actor] = []
   
   var formatedVote: String { String(format: "%.1f", vote) }
   
@@ -19,7 +18,7 @@ struct Movie {
     releaseDate.formatted(date: .long, time: .omitted)
   }
   
-  private var releaseDate: Date {
+  var releaseDate: Date {
     let strategy = Date.ISO8601FormatStyle().year().month().day().dateSeparator(.dash)
     return try! Date(releaseDateString, strategy: strategy)
   }

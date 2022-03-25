@@ -19,10 +19,10 @@ final class SeriesViewModel: ObservableObject {
     async let topRatedSeries = await repository.fetchTopRatedSeries()
     async let popularSeries = await repository.fetchPopularMovies()
     let result = try await (airingTodaySeries: airingTodaySeries, trendingSeries: trendingSeries, topRatedSeries: topRatedSeries, popularSeries: popularSeries)
-    self.airingTodaySeries = result.airingTodaySeries
-    self.trendingSeries = result.trendingSeries
-    self.topRatedSeries = result.topRatedSeries
-    self.popularSeries = result.popularSeries
+    self.airingTodaySeries = result.airingTodaySeries.lazy.sorted { $0.releaseDate > $1.releaseDate }
+    self.trendingSeries = result.trendingSeries.lazy.sorted { $0.releaseDate > $1.releaseDate }
+    self.topRatedSeries = result.topRatedSeries.lazy.sorted { $0.releaseDate > $1.releaseDate }
+    self.popularSeries = result.popularSeries.lazy.sorted { $0.releaseDate > $1.releaseDate }
   }
 }
 

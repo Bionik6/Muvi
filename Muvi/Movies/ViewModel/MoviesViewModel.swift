@@ -1,5 +1,60 @@
 import Combine
-import Foundation
+
+
+final class MoviesViewModel: ObservableObject {
+  private var repository: MovieRepository
+  
+  @Published var comingSoonMovies: [Movie] = []
+  @Published var trendingMovies: [Movie] = []
+  @Published var latestMovies: [Movie] = []
+  @Published var popularMovies: [Movie] = []
+  
+  public init(repository: MovieRepository) {
+    self.repository = repository
+  }
+  
+  @MainActor func fetchMovies() async throws {
+    async let comingSoonMovies = await repository.fetchComingSoonMovies()
+    async let trendingMovies = await repository.fetchTrendingMovies()
+    async let latestMovies = await repository.fetchLatestMovies()
+    async let popularMovies = await repository.fetchPopularMovies()
+    let result = try await (comingSoonMovies: comingSoonMovies, trendingMovies: trendingMovies, latestMovies: latestMovies, popularMovies: popularMovies)
+    self.comingSoonMovies = result.comingSoonMovies.lazy.sorted { $0.releaseDate > $1.releaseDate }
+    self.trendingMovies = result.trendingMovies.lazy.sorted { $0.releaseDate > $1.releaseDate }
+    self.latestMovies = result.latestMovies.lazy.sorted { $0.releaseDate > $1.releaseDate }
+    self.popularMovies = result.popularMovies.lazy.sorted { $0.releaseDate > $1.releaseDate }
+  }
+}
+
+
+struct MovieRepository {
+  private let remoteDataSource: RemoteMovieDataSource
+  
+  public init(remoteDataSource: RemoteMovieDataSource = .live) {
+    self.remoteDataSource = remoteDataSource
+  }
+  
+  func fetchComingSoonMovies() async throws -> [Movie] {
+    let response = try await remoteDataSource.upcomingMovies()
+    return response.results.compactMap { $0.model }
+  }
+  
+  func fetchTrendingMovies() async throws -> [Movie] {
+    let response = try await remoteDataSource.trendingMovies()
+    return response.results.compactMap { $0.model }
+  }
+  
+  func fetchLatestMovies() async throws -> [Movie] {
+    let response = try await remoteDataSource.latestMovies()
+    return response.results.compactMap { $0.model }
+  }
+  
+  func fetchPopularMovies() async throws -> [Movie] {
+    let response = try await remoteDataSource.popularMovies()
+    return response.results.compactMap { $0.model }
+  }
+}
+
 
 struct RemoteMovieDataSource {
   public static var client = APIClient()
@@ -38,59 +93,4 @@ struct RemoteMovieDataSource {
       return try await client.execute(request: request)
     }
   )
-}
-
-
-struct MovieRepository {
-  private let remoteDataSource: RemoteMovieDataSource
-  
-  public init(remoteDataSource: RemoteMovieDataSource = .live) {
-    self.remoteDataSource = remoteDataSource
-  }
-  
-  func fetchComingSoonMovies() async throws -> [Movie] {
-    let response = try await remoteDataSource.upcomingMovies()
-    return response.results.compactMap { $0.model }
-  }
-  
-  func fetchTrendingMovies() async throws -> [Movie] {
-    let response = try await remoteDataSource.trendingMovies()
-    return response.results.compactMap { $0.model }
-  }
-  
-  func fetchLatestMovies() async throws -> [Movie] {
-    let response = try await remoteDataSource.latestMovies()
-    return response.results.compactMap { $0.model }
-  }
-  
-  func fetchPopularMovies() async throws -> [Movie] {
-    let response = try await remoteDataSource.popularMovies()
-    return response.results.compactMap { $0.model }
-  }
-}
-
-
-final class MoviesViewModel: ObservableObject {
-  private var repository: MovieRepository
-  
-  @Published var comingSoonMovies: [Movie] = []
-  @Published var trendingMovies: [Movie] = []
-  @Published var latestMovies: [Movie] = []
-  @Published var popularMovies: [Movie] = []
-  
-  public init(repository: MovieRepository) {
-    self.repository = repository
-  }
-  
-  @MainActor func fetchMovies() async throws {
-    async let comingSoonMovies = await repository.fetchComingSoonMovies()
-    async let trendingMovies = await repository.fetchTrendingMovies()
-    async let latestMovies = await repository.fetchLatestMovies()
-    async let popularMovies = await repository.fetchPopularMovies()
-    let result = try await (comingSoonMovies: comingSoonMovies, trendingMovies: trendingMovies, latestMovies: latestMovies, popularMovies: popularMovies)
-    self.comingSoonMovies = result.comingSoonMovies
-    self.trendingMovies = result.trendingMovies
-    self.latestMovies = result.latestMovies
-    self.popularMovies = result.popularMovies
-  }
 }

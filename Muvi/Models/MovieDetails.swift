@@ -1,8 +1,6 @@
-//
-//  MovieDetails.swift
-//  Muvi
-//
-//  Created by Ibrahima Ciss on 25/03/2022.
-//
-
 import Foundation
+
+struct MovieDetails {
+  let movie: Movie
+  let genres: [String]
+}

@@ -2,16 +2,16 @@ import SwiftUI
 
 struct MediaCardView: View {
   
-  private var movie: Movie
+  private var media: Media
   
-  init(movie: Movie) {
-    self.movie = movie
+  init(media: Media) {
+    self.media = media
   }
   
   var body: some View {
     VStack(alignment: .leading) {
       
-      AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w200/\(movie.posterPath)")) { image in
+      AsyncImage(url: media.posterURL) { image in
         image
           .resizable()
           .aspectRatio(contentMode: .fill)
@@ -27,12 +27,12 @@ struct MediaCardView: View {
       }
       
       VStack(alignment: .leading, spacing: 4) {
-        Text(movie.title)
+        Text(media.title)
           .foregroundColor(.primaryText)
           .font(.body2)
           .lineLimit(1)
         HStack {
-          Text(movie.releaseDateYear)
+          Text(media.releaseDateYear)
             .font(.caption1)
             .foregroundColor(.secondaryText)
           Spacer()
@@ -41,7 +41,7 @@ struct MediaCardView: View {
               .resizable()
               .frame(width: 13, height: 13)
               .foregroundColor(.mainOrange)
-            Text(movie.formatedVote)
+            Text(media.formatedVote)
               .font(.caption1)
               .foregroundColor(.secondaryText)
           }
@@ -94,7 +94,7 @@ struct RedactedMovieCardView: View {
 
 struct MovieCard_Previews: PreviewProvider {
   static var previews: some View {
-    MediaCardView(movie: Movie(id: 1, title: "Spider man", posterPath: "", vote: 5.6, releaseDateString: Date().description, overview: ""))
+    MediaCardView(media: Movie(id: 1, title: "Spider man", posterPath: "", vote: 5.6, releaseDateString: Date().description, overview: ""))
       .preferredColorScheme(.dark)
   }
 }
