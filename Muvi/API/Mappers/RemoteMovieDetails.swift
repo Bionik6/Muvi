@@ -39,7 +39,7 @@ struct RemoteMovieDetails: Decodable {
     self.genres = genres
   }
   
-  public var model: MediaDetails<Movie> {
+  public var model: MediaDetails {
     let movie = Movie(
       id: id,
       title: title ?? name ?? "Unknow Movie",

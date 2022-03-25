@@ -36,7 +36,7 @@ struct RemoteSerieDetails: Decodable {
     self.genres = genres
   }
   
-  public var model: MediaDetails<Serie> {
+  public var model: MediaDetails {
     let serie = Serie(
       id: id,
       title: name ?? "Unknow Serie",

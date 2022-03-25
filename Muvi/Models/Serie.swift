@@ -7,5 +7,4 @@ struct Serie: Media {
   let vote: Double
   let releaseDateString: String
   let overview: String
-  var actors: [Actor] = []
 }

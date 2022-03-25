@@ -20,27 +20,46 @@ struct MediaDetailsRepository {
   
   init(
     mediaType: MediaType,
-    remoteMovieDetailsDataSource: RemoteMovieDetailsDataSource,
-    remoteSeriesDetailsDataSource: RemoteSerieDetailsDataSource
+    remoteMovieDetailsDataSource: RemoteMovieDetailsDataSource = .live,
+    remoteSeriesDetailsDataSource: RemoteSerieDetailsDataSource = .live
   ) {
     self.mediaType = mediaType
     self.remoteMovieDetailsDataSource = remoteMovieDetailsDataSource
     self.remoteSeriesDetailsDataSource = remoteSeriesDetailsDataSource
   }
   
-//  func fetchMediaDetails() -> 
+  func fetchMediaDetails() async throws -> MediaDetails {
+    switch mediaType {
+      case .movie(let movie): return try await remoteMovieDetailsDataSource.movieDetails(movie.id).model
+      case .serie(let serie): return try await remoteSeriesDetailsDataSource.serieDetails(serie.id).model
+    }
+  }
+  
+  func fetchMediaCast() async throws -> [Actor] {
+    switch mediaType {
+      case .movie(let movie): return try await remoteMovieDetailsDataSource.movieCast(movie.id).cast.compactMap { $0.model }
+      case .serie(let serie): return try await remoteSeriesDetailsDataSource.serieCast(serie.id).cast.compactMap { $0.model }
+    }
+  }
+  
+  func fetchMediaClips() async throws -> [Clip] {
+    switch mediaType {
+      case .movie(let movie): return try await remoteMovieDetailsDataSource.movieClips(movie.id).results.compactMap { $0.model }
+      case .serie(let serie): return try await remoteSeriesDetailsDataSource.serieClips(serie.id).results.compactMap { $0.model }
+    }
+  }
   
 }
 
 
 struct RemoteMovieDetailsDataSource {
   static var client = APIClient()
-  private(set) var movieDetails: (Int) async throws -> RemoteMovie
+  private(set) var movieDetails: (Int) async throws -> RemoteMovieDetails
   private(set) var movieCast: (Int) async throws -> CastResponse
   private(set) var movieClips: (Int) async throws -> ClipResponse
   
   init(
-    movieDetails: @escaping (Int) async throws -> RemoteMovie,
+    movieDetails: @escaping (Int) async throws -> RemoteMovieDetails,
     movieCast: @escaping (Int) async throws -> CastResponse,
     movieClips: @escaping (Int) async throws -> ClipResponse
   ) {
