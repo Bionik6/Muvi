@@ -66,8 +66,33 @@ struct RemoteMovieDetailsDataSource {
 
 struct RemoteSerieDetailsDataSource {
   static var client = APIClient()
+  private(set) var serieDetails: (Int) async throws -> RemoteSerieDetails
+  private(set) var serieCast: (Int) async throws -> CastResponse
+  private(set) var serieClips: (Int) async throws -> ClipResponse
+  
+  init(
+    serieDetails: @escaping (Int) async throws -> RemoteSerieDetails,
+    serieCast: @escaping (Int) async throws -> CastResponse,
+    serieClips: @escaping (Int) async throws -> ClipResponse
+  ) {
+    self.serieDetails = serieDetails
+    self.serieCast = serieCast
+    self.serieClips = serieClips
+  }
   
   static let live = Self(
-    
+    serieDetails: { id in
+      let request = Request(path: "tv/\(id)", method: .get)
+      return try await client.execute(request: request)
+    },
+    serieCast: { id in
+      let request = Request(path: "tv/\(id)/credits", method: .get)
+      return try await client.execute(request: request)
+    },
+    serieClips: { id in
+      let request = Request(path: "tv/\(id)/videos", method: .get)
+      return try await client.execute(request: request)
+    }
   )
+  
 }

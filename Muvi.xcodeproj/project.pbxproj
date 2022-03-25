@@ -50,7 +50,9 @@
 		40B154DF27EDF1BB0022CA01 /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154DE27EDF1BB0022CA01 /* MovieDetails.swift */; };
 		40B154E127EDFCBA0022CA01 /* RemoteActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154E027EDFCBA0022CA01 /* RemoteActor.swift */; };
 		40B154E527EE09B90022CA01 /* Clip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154E427EE09B90022CA01 /* Clip.swift */; };
-		40B154E727EE0C160022CA01 /* RemoteScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154E627EE0C160022CA01 /* RemoteScene.swift */; };
+		40B154E727EE0C160022CA01 /* RemoteClip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154E627EE0C160022CA01 /* RemoteClip.swift */; };
+		40B154E927EE15C60022CA01 /* SerieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154E827EE15C60022CA01 /* SerieDetails.swift */; };
+		40B154EB27EE16300022CA01 /* RemoteSerieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154EA27EE16300022CA01 /* RemoteSerieDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,7 +121,9 @@
 		40B154DE27EDF1BB0022CA01 /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		40B154E027EDFCBA0022CA01 /* RemoteActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteActor.swift; sourceTree = "<group>"; };
 		40B154E427EE09B90022CA01 /* Clip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clip.swift; sourceTree = "<group>"; };
-		40B154E627EE0C160022CA01 /* RemoteScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteScene.swift; sourceTree = "<group>"; };
+		40B154E627EE0C160022CA01 /* RemoteClip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteClip.swift; sourceTree = "<group>"; };
+		40B154E827EE15C60022CA01 /* SerieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerieDetails.swift; sourceTree = "<group>"; };
+		40B154EA27EE16300022CA01 /* RemoteSerieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSerieDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +233,7 @@
 				4045E49227EDA47300FBF3C2 /* Media.swift */,
 				40B154DE27EDF1BB0022CA01 /* MovieDetails.swift */,
 				40B154E427EE09B90022CA01 /* Clip.swift */,
+				40B154E827EE15C60022CA01 /* SerieDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,7 +328,8 @@
 				40B154D227EDC2D60022CA01 /* RemoteSerie.swift */,
 				40B154DC27EDE7BC0022CA01 /* RemoteMovieDetails.swift */,
 				40B154E027EDFCBA0022CA01 /* RemoteActor.swift */,
-				40B154E627EE0C160022CA01 /* RemoteScene.swift */,
+				40B154E627EE0C160022CA01 /* RemoteClip.swift */,
+				40B154EA27EE16300022CA01 /* RemoteSerieDetails.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -551,6 +557,7 @@
 				40B154DD27EDE7BC0022CA01 /* RemoteMovieDetails.swift in Sources */,
 				40B154D627EDC34B0022CA01 /* SerieViewModel.swift in Sources */,
 				4045E44527EB071C00FBF3C2 /* ComingSoonCard.swift in Sources */,
+				40B154E927EE15C60022CA01 /* SerieDetails.swift in Sources */,
 				4045E41E27EAFE4B00FBF3C2 /* Persistence.swift in Sources */,
 				4045E48527EBA4C600FBF3C2 /* NetworkError.swift in Sources */,
 				4045E45B27EB1ADF00FBF3C2 /* Color.swift in Sources */,
@@ -565,6 +572,7 @@
 				4045E44C27EB109500FBF3C2 /* MediaCardView.swift in Sources */,
 				40B154E127EDFCBA0022CA01 /* RemoteActor.swift in Sources */,
 				4045E48427EBA4C100FBF3C2 /* SuccessfulResponses.swift in Sources */,
+				40B154EB27EE16300022CA01 /* RemoteSerieDetails.swift in Sources */,
 				40B154DF27EDF1BB0022CA01 /* MovieDetails.swift in Sources */,
 				4045E46327EB95BD00FBF3C2 /* MoviesViewModel.swift in Sources */,
 				4045E47B27EBA43800FBF3C2 /* HTTPMethod.swift in Sources */,
@@ -578,7 +586,7 @@
 				4045E48327EBA4A600FBF3C2 /* RemoteMovie.swift in Sources */,
 				4045E47E27EBA43800FBF3C2 /* APIClient.swift in Sources */,
 				4045E48027EBA43D00FBF3C2 /* Mocks.swift in Sources */,
-				40B154E727EE0C160022CA01 /* RemoteScene.swift in Sources */,
+				40B154E727EE0C160022CA01 /* RemoteClip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
