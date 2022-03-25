@@ -55,6 +55,7 @@
 		40B154EF27EE206A0022CA01 /* MediaDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */; };
 		40B154F127EE5E2F0022CA01 /* ActorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154F027EE5E2F0022CA01 /* ActorView.swift */; };
 		40B154F327EE626D0022CA01 /* ClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154F227EE626D0022CA01 /* ClipView.swift */; };
+		40B154F627EE70350022CA01 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 40B154F527EE70350022CA01 /* YouTubePlayerKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B154F627EE70350022CA01 /* YouTubePlayerKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,6 +440,9 @@
 			dependencies = (
 			);
 			name = Muvi;
+			packageProductDependencies = (
+				40B154F527EE70350022CA01 /* YouTubePlayerKit */,
+			);
 			productName = Muvi;
 			productReference = 4045E41127EAFE4A00FBF3C2 /* Muvi.app */;
 			productType = "com.apple.product-type.application";
@@ -510,6 +515,9 @@
 				Base,
 			);
 			mainGroup = 4045E40827EAFE4A00FBF3C2;
+			packageReferences = (
+				40B154F427EE70350022CA01 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */,
+			);
 			productRefGroup = 4045E41227EAFE4A00FBF3C2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -923,6 +931,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		40B154F427EE70350022CA01 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SvenTiigi/YouTubePlayerKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		40B154F527EE70350022CA01 /* YouTubePlayerKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40B154F427EE70350022CA01 /* XCRemoteSwiftPackageReference "YouTubePlayerKit" */;
+			productName = YouTubePlayerKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4045E41F27EAFE4B00FBF3C2 /* Muvi.xcdatamodeld */ = {

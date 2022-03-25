@@ -18,6 +18,7 @@ struct ClipView: View {
       Text(clip.name)
         .font(.body2)
         .lineSpacing(4)
+        .multilineTextAlignment(.leading)
     }
     
   }

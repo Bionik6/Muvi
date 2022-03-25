@@ -7,6 +7,7 @@ class MediaDetailsViewModel: ObservableObject {
   @Published private(set) var genres: [String] = []
   @Published private(set) var cast: [Actor] = []
   @Published private(set) var clips: [Clip] = []
+  @Published private(set) var trailerURLString: String?
   
   init(media: Media, repository: MediaDetailsRepository) {
     self.media = media
@@ -20,7 +21,8 @@ class MediaDetailsViewModel: ObservableObject {
     let result = try await (mediaDetails: mediaDetails, cast: cast, clips: clips)
     self.genres = result.mediaDetails.genres
     self.cast = result.cast.lazy.filter { $0.profileImagePath != nil}.sorted { $0.order < $1.order }
-  self.clips = result.clips.lazy.filter { $0.site != nil && $0.site == .youtube }
+    self.clips = result.clips.lazy.filter { $0.site != nil && $0.site == .youtube }
+    self.trailerURLString = self.clips.filter { $0.type != nil && $0.type == .trailer }.last?.key
   }
 }
 

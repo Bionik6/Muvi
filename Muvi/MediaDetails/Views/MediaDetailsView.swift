@@ -1,12 +1,22 @@
 import SwiftUI
+import YouTubePlayerKit
 
 struct MediaDetailsView: View {
   
   @State private var selection: Int = 1
+  @State private var playTrailer: Bool = false
+  @State private var selectedClip: Clip? = nil
   @ObservedObject var viewModel: MediaDetailsViewModel
   @Environment(\.presentationMode) private var presentationMode
   var castItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
   var clipItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
+  var playerConfiguration: YouTubePlayer.Configuration {
+    var configuration = YouTubePlayer.Configuration()
+    configuration.autoPlay = true
+    configuration.allowsPictureInPictureMediaPlayback = true
+    configuration.playInline = true
+    return configuration
+  }
   
   var body: some View {
     ScrollView {
@@ -60,7 +70,7 @@ struct MediaDetailsView: View {
             
             HStack {
               OutlineButton(title: "WatchList", systemImage: "plus.square", action: {})
-              PrimaryButton(title: "Play Trailer", systemImage: "play.circle", action: {})
+              PrimaryButton(title: "Play Trailer", systemImage: "play.circle", action: { playTrailer.toggle() })
             }.padding(.top, 12)
           }
           
@@ -109,7 +119,10 @@ struct MediaDetailsView: View {
               ScrollView {
                 LazyVGrid(columns: clipItemLayout, spacing: 20) {
                   ForEach(viewModel.clips, id: \.name) { clip in
-                    ClipView(clip: clip)
+                    Button {
+                      self.selectedClip = clip
+                    } label: { ClipView(clip: clip) }
+                      .foregroundColor(.white)
                   }
                 }
               }.padding(.top, 16)
@@ -122,6 +135,14 @@ struct MediaDetailsView: View {
     }
     .navigationTitle("")
     .navigationBarHidden(true)
+    .sheet(isPresented: $playTrailer, content: {
+      if let youtubeLink = viewModel.trailerURLString {
+        YouTubePlayerView(YouTubePlayer(source: .video(id: youtubeLink), configuration: playerConfiguration))
+      }
+    })
+    .sheet(isPresented: .constant(selectedClip != nil), content: {
+      YouTubePlayerView(YouTubePlayer(source: .video(id: selectedClip!.key), configuration: playerConfiguration))
+    })
     .task {
       do {
         try await viewModel.fetchAllMediaDetails()
