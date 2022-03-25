@@ -14,7 +14,8 @@ enum ClipSite: String {
 }
 
 
-struct Clip {
+struct Clip: Identifiable {
+  let id = UUID()
   let name: String
   let site: ClipSite?
   let key: String

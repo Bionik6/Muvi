@@ -140,8 +140,8 @@ struct MediaDetailsView: View {
         YouTubePlayerView(YouTubePlayer(source: .video(id: youtubeLink), configuration: playerConfiguration))
       }
     })
-    .sheet(isPresented: .constant(selectedClip != nil), content: {
-      YouTubePlayerView(YouTubePlayer(source: .video(id: selectedClip!.key), configuration: playerConfiguration))
+    .sheet(item: $selectedClip, onDismiss: { selectedClip = nil }, content: { clip in
+      YouTubePlayerView(YouTubePlayer(source: .video(id: clip.key), configuration: playerConfiguration))
     })
     .task {
       do {
