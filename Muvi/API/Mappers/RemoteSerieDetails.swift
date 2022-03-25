@@ -36,7 +36,7 @@ struct RemoteSerieDetails: Decodable {
     self.genres = genres
   }
   
-  public var model: SerieDetails {
+  public var model: MediaDetails<Serie> {
     let serie = Serie(
       id: id,
       title: name ?? "Unknow Serie",
@@ -45,7 +45,7 @@ struct RemoteSerieDetails: Decodable {
       releaseDateString: releaseDate ?? firstAirDate ?? "Today",
       overview: overview
     )
-    return SerieDetails(serie: serie, genres: genres.compactMap { $0.name })
+    return MediaDetails(media: serie, genres: genres.compactMap { $0.name })
   }
   
 }
