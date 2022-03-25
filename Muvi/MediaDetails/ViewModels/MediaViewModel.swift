@@ -20,7 +20,7 @@ class MediaDetailsViewModel: ObservableObject {
     let result = try await (mediaDetails: mediaDetails, cast: cast, clips: clips)
     self.genres = result.mediaDetails.genres
     self.cast = result.cast.lazy.filter { $0.profileImagePath != nil}.sorted { $0.order < $1.order }
-    self.clips = result.clips.lazy.filter { $0.site != nil && $0.site == .youtube }
+  self.clips = result.clips.lazy.filter { $0.site != nil && $0.site == .youtube }
   }
 }
 

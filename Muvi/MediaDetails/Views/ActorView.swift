@@ -31,9 +31,3 @@ struct ActorView: View {
       }
     }
 }
-
-struct ActorView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActorView(actor: Actor(id: 0, order: 1, realName: "Hello", characterName: "Hi", profileImagePath: nil))
-    }
-}
