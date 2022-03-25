@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 struct RemoteMovieDataSource {
-  private static let client = APIClient()
+  public static var client = APIClient()
   private(set) var upcomingMovies: () async throws -> MoviesResponse
   private(set) var trendingMovies: () async throws -> MoviesResponse
   private(set) var latestMovies: () async throws -> MoviesResponse

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ComingSoonMovieView: View {
+struct ComingSoonCard: View {
  
   private var movie: Movie
   
@@ -73,7 +73,7 @@ struct RedactedComingSoonMovieView: View {
 struct ComingSoonMovie_Previews: PreviewProvider {
   static var previews: some View {
     
-    ComingSoonMovieView(movie: Movie(id: 1, title: "Spider man", posterPath: "", vote: 5.6, releaseDateString: Date().description, overview: ""))
+    ComingSoonCard(movie: Movie(id: 1, title: "Spider man", posterPath: "", vote: 5.6, releaseDateString: Date().description, overview: ""))
       .preferredColorScheme(.dark)
       .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/216.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/172.0/*@END_MENU_TOKEN@*/))
   }

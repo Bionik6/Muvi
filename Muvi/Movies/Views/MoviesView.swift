@@ -15,25 +15,25 @@ struct MoviesView: View {
       ScrollView {
         MOVIE_SECTION(for: viewModel.comingSoonMovies, title: "Coming Soon", redactedViewNumber: 3, type: .landscape) {
           ForEach(viewModel.comingSoonMovies.prefix(8), id: \.id) { movie in
-            ComingSoonMovieView(movie: movie)
+            ComingSoonCard(movie: movie)
           }
         }
         
         MOVIE_SECTION(for: viewModel.trendingMovies, title: "Trending Now", redactedViewNumber: 5, type: .portrait) {
           ForEach(viewModel.trendingMovies.prefix(8), id: \.id) { movie in
-            MovieCardView(movie: movie)
+            MediaCardView(movie: movie)
           }
         }
         
         MOVIE_SECTION(for: viewModel.latestMovies, title: "Latest Releases", redactedViewNumber: 5, type: .portrait) {
           ForEach(viewModel.latestMovies.prefix(8), id: \.id) { movie in
-            MovieCardView(movie: movie)
+            MediaCardView(movie: movie)
           }
         }
         
         MOVIE_SECTION(for: viewModel.popularMovies, title: "Hits Box Office", redactedViewNumber: 5, type: .portrait) {
           ForEach(viewModel.popularMovies.prefix(8), id: \.id) { movie in
-            MovieCardView(movie: movie)
+            MediaCardView(movie: movie)
           }
         }
       }.task {

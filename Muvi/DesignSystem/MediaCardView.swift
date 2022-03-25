@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MovieCardView: View {
+struct MediaCardView: View {
   
   private var movie: Movie
   
@@ -94,7 +94,7 @@ struct RedactedMovieCardView: View {
 
 struct MovieCard_Previews: PreviewProvider {
   static var previews: some View {
-    MovieCardView(movie: Movie(id: 1, title: "Spider man", posterPath: "", vote: 5.6, releaseDateString: Date().description, overview: ""))
+    MediaCardView(movie: Movie(id: 1, title: "Spider man", posterPath: "", vote: 5.6, releaseDateString: Date().description, overview: ""))
       .preferredColorScheme(.dark)
   }
 }
