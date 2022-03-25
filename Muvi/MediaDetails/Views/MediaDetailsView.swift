@@ -3,7 +3,7 @@ import YouTubePlayerKit
 
 struct MediaDetailsView: View {
   
-  @State private var selection: Int = 1    
+  @State private var selection: Int = 1
   @State private var playTrailer: Bool = false
   @State private var selectedClip: Clip? = nil
   @ObservedObject var viewModel: MediaDetailsViewModel
@@ -130,8 +130,6 @@ struct MediaDetailsView: View {
           default: EmptyView()
         }
       }.padding(.horizontal, 16)
-      
-      
     }
     .navigationTitle("")
     .navigationBarHidden(true)
