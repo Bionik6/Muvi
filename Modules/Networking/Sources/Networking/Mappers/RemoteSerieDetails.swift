@@ -1,15 +1,15 @@
+import Core
 import Foundation
 
 
-struct RemoteMovieDetails: Decodable {
+struct RemoteSerieDetails: Decodable {
   struct Genre: Decodable {
     let id: Int
     let name: String
   }
   
   let id: Int
-  let title: String?
-  let posterPath: String
+  let posterPath: String?
   let voteAverage: Double
   let releaseDate: String?
   let overview: String
@@ -19,8 +19,7 @@ struct RemoteMovieDetails: Decodable {
   
   public init(
     id: Int,
-    title: String?,
-    posterPath: String,
+    posterPath: String?,
     voteAverage: Double,
     releaseDate: String,
     name: String?,
@@ -29,7 +28,6 @@ struct RemoteMovieDetails: Decodable {
     genres: [Genre]
   ) {
     self.id = id
-    self.title = title
     self.posterPath = posterPath
     self.voteAverage = voteAverage
     self.releaseDate = releaseDate
@@ -40,15 +38,15 @@ struct RemoteMovieDetails: Decodable {
   }
   
   public var model: MediaDetails {
-    let movie = Movie(
+    let serie = Serie(
       id: id,
-      title: title ?? name ?? "Unknow Movie",
-      posterPath: posterPath,
+      title: name ?? "Unknow Serie",
+      posterPath: posterPath ?? "",
       vote: voteAverage,
       releaseDateString: releaseDate ?? firstAirDate ?? "Today",
       overview: overview
     )
-    return MediaDetails(media: movie, genres: genres.compactMap { $0.name })
+    return MediaDetails(media: serie, genres: genres.compactMap { $0.name })
   }
   
 }

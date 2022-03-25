@@ -1,6 +1,6 @@
 import Foundation
 
-struct MediaDetails {
+public struct MediaDetails {
   let media: any Media
   let genres: [String]
 }

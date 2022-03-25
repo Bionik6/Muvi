@@ -1,3 +1,4 @@
+import Core
 import SwiftUI
 
 struct MediaCardView: View {

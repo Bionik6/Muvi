@@ -1,4 +1,6 @@
+import Core
 import SwiftUI
+
 
 struct ActorView: View {
   

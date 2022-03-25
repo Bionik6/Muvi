@@ -1,6 +1,6 @@
 import Foundation
 
-struct Actor {
+public struct Actor {
   let id: Int
   let order: Int
   let realName: String
