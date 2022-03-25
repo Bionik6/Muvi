@@ -5,7 +5,8 @@ struct MediaDetailsView: View {
   @State private var selection: Int = 1
   @ObservedObject var viewModel: MediaDetailsViewModel
   @Environment(\.presentationMode) private var presentationMode
-  var gridItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+  var castItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+  var clipItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
   
   var body: some View {
     ScrollView {
@@ -90,16 +91,32 @@ struct MediaDetailsView: View {
         switch selection {
           case 1:
             ScrollView {
-              LazyVGrid(columns: gridItemLayout, spacing: 20) {
+              LazyVGrid(columns: castItemLayout, spacing: 20) {
                 ForEach(viewModel.cast, id: \.id) { cast in
                   ActorView(actor: cast)
                 }
               }
             }.padding(.top, 16)
-          case 2: Text("Hello V2")
+          case 2:
+            if viewModel.clips.count == 0 {
+              VStack {
+                Image("no-clip")
+                Text("No clip found.")
+                  .font(.heading2)
+                  .foregroundColor(.white)
+              }.padding(.vertical, 30)
+            } else {
+              ScrollView {
+                LazyVGrid(columns: clipItemLayout, spacing: 20) {
+                  ForEach(viewModel.clips, id: \.name) { clip in
+                    ClipView(clip: clip)
+                  }
+                }
+              }.padding(.top, 16)
+            }
           default: EmptyView()
         }
-      }
+      }.padding(.horizontal, 16)
       
       
     }

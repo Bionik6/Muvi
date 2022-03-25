@@ -54,6 +54,7 @@
 		40B154ED27EE1B7F0022CA01 /* MediaDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154EC27EE1B7F0022CA01 /* MediaDetails.swift */; };
 		40B154EF27EE206A0022CA01 /* MediaDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */; };
 		40B154F127EE5E2F0022CA01 /* ActorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154F027EE5E2F0022CA01 /* ActorView.swift */; };
+		40B154F327EE626D0022CA01 /* ClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154F227EE626D0022CA01 /* ClipView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		40B154EC27EE1B7F0022CA01 /* MediaDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetails.swift; sourceTree = "<group>"; };
 		40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailsView.swift; sourceTree = "<group>"; };
 		40B154F027EE5E2F0022CA01 /* ActorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorView.swift; sourceTree = "<group>"; };
+		40B154F227EE626D0022CA01 /* ClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +360,7 @@
 			children = (
 				40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */,
 				40B154F027EE5E2F0022CA01 /* ActorView.swift */,
+				40B154F227EE626D0022CA01 /* ClipView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				4045E48527EBA4C600FBF3C2 /* NetworkError.swift in Sources */,
 				4045E45B27EB1ADF00FBF3C2 /* Color.swift in Sources */,
 				40B154E527EE09B90022CA01 /* Clip.swift in Sources */,
+				40B154F327EE626D0022CA01 /* ClipView.swift in Sources */,
 				4045E47F27EBA43D00FBF3C2 /* PathMonitorClient.swift in Sources */,
 				40B154DB27EDC8F10022CA01 /* MediaSection.swift in Sources */,
 				4045E47D27EBA43800FBF3C2 /* MultipartForm.swift in Sources */,
