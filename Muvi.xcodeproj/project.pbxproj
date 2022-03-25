@@ -56,6 +56,14 @@
 		40B154F127EE5E2F0022CA01 /* ActorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154F027EE5E2F0022CA01 /* ActorView.swift */; };
 		40B154F327EE626D0022CA01 /* ClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B154F227EE626D0022CA01 /* ClipView.swift */; };
 		40B154F627EE70350022CA01 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = 40B154F527EE70350022CA01 /* YouTubePlayerKit */; };
+		40F82ECC27EE8A9700C2E00A /* MediaFeature in Resources */ = {isa = PBXBuildFile; fileRef = 40F82EC927EE8A9700C2E00A /* MediaFeature */; };
+		40F82ECD27EE8A9700C2E00A /* MovieFeature in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ECA27EE8A9700C2E00A /* MovieFeature */; };
+		40F82ECE27EE8A9700C2E00A /* SerieFeature in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ECB27EE8A9700C2E00A /* SerieFeature */; };
+		40F82ED527EE8AA700C2E00A /* DesignSystem in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ED027EE8AA700C2E00A /* DesignSystem */; };
+		40F82ED627EE8AA700C2E00A /* Core in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ED127EE8AA700C2E00A /* Core */; };
+		40F82ED727EE8AA700C2E00A /* Networking in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ED227EE8AA700C2E00A /* Networking */; };
+		40F82ED827EE8AA700C2E00A /* Utils in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ED327EE8AA700C2E00A /* Utils */; };
+		40F82ED927EE8AA700C2E00A /* Storage in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ED427EE8AA700C2E00A /* Storage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +137,14 @@
 		40B154EE27EE206A0022CA01 /* MediaDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailsView.swift; sourceTree = "<group>"; };
 		40B154F027EE5E2F0022CA01 /* ActorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorView.swift; sourceTree = "<group>"; };
 		40B154F227EE626D0022CA01 /* ClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipView.swift; sourceTree = "<group>"; };
+		40F82EC927EE8A9700C2E00A /* MediaFeature */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MediaFeature; sourceTree = "<group>"; };
+		40F82ECA27EE8A9700C2E00A /* MovieFeature */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MovieFeature; sourceTree = "<group>"; };
+		40F82ECB27EE8A9700C2E00A /* SerieFeature */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SerieFeature; sourceTree = "<group>"; };
+		40F82ED027EE8AA700C2E00A /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
+		40F82ED127EE8AA700C2E00A /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
+		40F82ED227EE8AA700C2E00A /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
+		40F82ED327EE8AA700C2E00A /* Utils */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Utils; sourceTree = "<group>"; };
+		40F82ED427EE8AA700C2E00A /* Storage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Storage; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +176,9 @@
 		4045E40827EAFE4A00FBF3C2 = {
 			isa = PBXGroup;
 			children = (
-				4045E41327EAFE4A00FBF3C2 /* Muvi */,
+				40F82ECF27EE8AA700C2E00A /* Modules */,
+				40F82EC827EE8A9700C2E00A /* Features */,
+				4045E41327EAFE4A00FBF3C2 /* Sources */,
 				4045E42927EAFE4B00FBF3C2 /* MuviTests */,
 				4045E43327EAFE4B00FBF3C2 /* MuviUITests */,
 				4045E41227EAFE4A00FBF3C2 /* Products */,
@@ -177,7 +195,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4045E41327EAFE4A00FBF3C2 /* Muvi */ = {
+		4045E41327EAFE4A00FBF3C2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				4045E48F27EDA14600FBF3C2 /* Series */,
@@ -193,7 +211,7 @@
 				4045E48627EBA51600FBF3C2 /* Storage */,
 				4045E41A27EAFE4B00FBF3C2 /* Preview Content */,
 			);
-			path = Muvi;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		4045E41A27EAFE4B00FBF3C2 /* Preview Content */ = {
@@ -424,6 +442,28 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		40F82EC827EE8A9700C2E00A /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				40F82EC927EE8A9700C2E00A /* MediaFeature */,
+				40F82ECA27EE8A9700C2E00A /* MovieFeature */,
+				40F82ECB27EE8A9700C2E00A /* SerieFeature */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		40F82ECF27EE8AA700C2E00A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				40F82ED027EE8AA700C2E00A /* DesignSystem */,
+				40F82ED127EE8AA700C2E00A /* Core */,
+				40F82ED227EE8AA700C2E00A /* Networking */,
+				40F82ED327EE8AA700C2E00A /* Utils */,
+				40F82ED427EE8AA700C2E00A /* Storage */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -534,8 +574,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F82ECE27EE8A9700C2E00A /* SerieFeature in Resources */,
+				40F82ECD27EE8A9700C2E00A /* MovieFeature in Resources */,
+				40F82ED927EE8AA700C2E00A /* Storage in Resources */,
 				4045E45627EB1AA200FBF3C2 /* Inter-SemiBold.ttf in Resources */,
+				40F82ED627EE8AA700C2E00A /* Core in Resources */,
 				4045E41C27EAFE4B00FBF3C2 /* Preview Assets.xcassets in Resources */,
+				40F82ECC27EE8A9700C2E00A /* MediaFeature in Resources */,
+				40F82ED727EE8AA700C2E00A /* Networking in Resources */,
+				40F82ED527EE8AA700C2E00A /* DesignSystem in Resources */,
+				40F82ED827EE8AA700C2E00A /* Utils in Resources */,
 				4045E45527EB1AA200FBF3C2 /* Inter-Bold.ttf in Resources */,
 				4045E41927EAFE4B00FBF3C2 /* Assets.xcassets in Resources */,
 				4045E45427EB1AA200FBF3C2 /* Inter-Regular.ttf in Resources */,
@@ -762,11 +810,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Muvi/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Muvi/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -792,11 +840,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Muvi/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sources/Preview Content\"";
 				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Muvi/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
