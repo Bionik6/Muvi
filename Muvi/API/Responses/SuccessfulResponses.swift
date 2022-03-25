@@ -1,9 +1,5 @@
 import Foundation
 
-public protocol BackendResponse: Decodable {
-  var status: Int { get }
-}
-
 struct MoviesResponse: Decodable {
   let results: [RemoteMovie]
 }
@@ -14,4 +10,8 @@ struct SeriesResponse: Decodable {
 
 struct CastResponse: Decodable {
   let cast: [RemoteActor]
+}
+
+struct ClipResponse: Decodable {
+  let results: [RemoteClip]
 }

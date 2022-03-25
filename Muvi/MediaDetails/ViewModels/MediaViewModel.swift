@@ -2,11 +2,11 @@ import Combine
 
 
 class MediaDetailsViewModel: ObservableObject {
-  private var media: Media
-  private var repository: MediaDetailsRepository
+  private let mediaType: MediaType
+  private let repository: MediaDetailsRepository
   
-  init(media: Media, repository: MediaDetailsRepository) {
-    self.media = media
+  init(mediaType: MediaType, repository: MediaDetailsRepository) {
+    self.mediaType = mediaType
     self.repository = repository
   }
   
@@ -14,13 +14,16 @@ class MediaDetailsViewModel: ObservableObject {
 
 
 struct MediaDetailsRepository {
+  private let mediaType: MediaType
   private let remoteMovieDetailsDataSource: RemoteMovieDetailsDataSource
   private let remoteSeriesDetailsDataSource: RemoteSerieDetailsDataSource
   
   init(
+    mediaType: MediaType,
     remoteMovieDetailsDataSource: RemoteMovieDetailsDataSource,
     remoteSeriesDetailsDataSource: RemoteSerieDetailsDataSource
   ) {
+    self.mediaType = mediaType
     self.remoteMovieDetailsDataSource = remoteMovieDetailsDataSource
     self.remoteSeriesDetailsDataSource = remoteSeriesDetailsDataSource
   }
@@ -30,13 +33,34 @@ struct MediaDetailsRepository {
 
 struct RemoteMovieDetailsDataSource {
   static var client = APIClient()
-  private(set) var movieDetails: (Int) async throws -> MoviesResponse
-  private(set) var movieCast: (Int) async throws -> MoviesResponse
-  private(set) var movieScenes: (Int) async throws -> MoviesResponse
+  private(set) var movieDetails: (Int) async throws -> RemoteMovie
+  private(set) var movieCast: (Int) async throws -> CastResponse
+  private(set) var movieClips: (Int) async throws -> ClipResponse
   
-//  static let live = Self(
-//
-//  )
+  init(
+    movieDetails: @escaping (Int) async throws -> RemoteMovie,
+    movieCast: @escaping (Int) async throws -> CastResponse,
+    movieClips: @escaping (Int) async throws -> ClipResponse
+  ) {
+    self.movieDetails = movieDetails
+    self.movieCast = movieCast
+    self.movieClips = movieClips
+  }
+  
+  static let live = Self(
+    movieDetails: { id in
+      let request = Request(path: "movie/\(id)", method: .get)
+      return try await client.execute(request: request)
+    },
+    movieCast: { id in
+      let request = Request(path: "movie/\(id)/credits", method: .get)
+      return try await client.execute(request: request)
+    },
+    movieClips: { id in
+      let request = Request(path: "movie/\(id)/videos", method: .get)
+      return try await client.execute(request: request)
+    }
+  )
 }
 
 
