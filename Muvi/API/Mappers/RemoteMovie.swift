@@ -4,21 +4,21 @@ import Foundation
 struct RemoteMovie: Decodable {
   let id: Int
   let title: String?
-  let posterPath: String
+  let posterPath: String?
   let voteAverage: Double
   let releaseDate: String?
-  let overview: String
+  let overview: String?
   let name: String?
   let firstAirDate: String?
   
   public init(
     id: Int,
     title: String?,
-    posterPath: String,
+    posterPath: String?,
     voteAverage: Double,
     releaseDate: String,
     name: String?,
-    overview: String,
+    overview: String?,
     firstAirDate: String?
   ) {
     self.id = id
@@ -38,7 +38,7 @@ struct RemoteMovie: Decodable {
       posterPath: posterPath,
       vote: voteAverage,
       releaseDateString: releaseDate ?? firstAirDate ?? "Today",
-      overview: overview
+      overview: overview ?? ""
     )
   }
   

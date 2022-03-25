@@ -19,19 +19,28 @@ struct MoviesView: View {
         
         MediaSection(media: viewModel.trendingMovies, title: "Trending Now", redactedViewsNumber: 5, type: .portrait) {
           ForEach(viewModel.trendingMovies.prefix(8), id: \.id) { movie in
-            MediaCardView(media: movie)
+            NavigationLink(
+              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
+              label: { MediaCardView(media: movie) }
+            )
           }
         }
         
         MediaSection(media: viewModel.latestMovies, title: "Latest Releases", redactedViewsNumber: 5, type: .portrait) {
           ForEach(viewModel.latestMovies.prefix(8), id: \.id) { movie in
-            MediaCardView(media: movie)
+            NavigationLink(
+              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
+              label: { MediaCardView(media: movie) }
+            )
           }
         }
         
         MediaSection(media: viewModel.popularMovies, title: "Hits Box Office", redactedViewsNumber: 5, type: .portrait) {
           ForEach(viewModel.popularMovies.prefix(8), id: \.id) { movie in
-            MediaCardView(media: movie)
+            NavigationLink(
+              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
+              label: { MediaCardView(media: movie) }
+            )
           }
         }
       }.task {

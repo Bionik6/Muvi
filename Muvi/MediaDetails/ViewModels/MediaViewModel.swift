@@ -19,7 +19,10 @@ class MediaDetailsViewModel: ObservableObject {
     async let cast = await repository.fetchMediaCast(id: media.id)
     async let clips = await repository.fetchMediaClips(id: media.id)
     let result = try await (mediaDetails: mediaDetails, cast: cast, clips: clips)
-    print(result)
+    self.genres = result.mediaDetails.genres
+    self.cast = result.cast
+    self.clips = result.clips
+    
   }
 }
 

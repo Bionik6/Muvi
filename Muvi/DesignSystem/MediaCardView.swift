@@ -48,6 +48,7 @@ struct MediaCardView: View {
         }
       }
     }
+    .foregroundColor(.white)
     .frame(maxWidth: 152)
   }
 }
@@ -88,6 +89,7 @@ struct RedactedMovieCardView: View {
       }
     }
     .frame(maxWidth: 152)
+    .foregroundColor(.white)
     .redacted(reason: .placeholder)
   }
 }

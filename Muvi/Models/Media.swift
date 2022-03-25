@@ -30,6 +30,12 @@ extension Media {
     url.appendPathComponent(posterPath ?? "")
     return url
   }
+  
+  var largerPosterURL: URL {
+    guard var url = URL(string: "https://image.tmdb.org/t/p/w400") else { fatalError("URL can't be constructed") }
+    url.appendPathComponent(posterPath ?? "")
+    return url
+  }
 }
 
 
