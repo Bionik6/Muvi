@@ -112,7 +112,7 @@
 		4045E47327EBA42E00FBF3C2 /* SuccessfulResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulResponses.swift; sourceTree = "<group>"; };
 		4045E47927EBA42F00FBF3C2 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		4045E48227EBA4A600FBF3C2 /* RemoteMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMovie.swift; sourceTree = "<group>"; };
-		4045E48827EBD0E100FBF3C2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		4045E48827EBD0E100FBF3C2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Config.xcconfig; path = ../../Sources/Resources/Config.xcconfig; sourceTree = "<group>"; };
 		4045E48A27EDA0C700FBF3C2 /* MediaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewModel.swift; sourceTree = "<group>"; };
 		4045E49027EDA31100FBF3C2 /* Serie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serie.swift; sourceTree = "<group>"; };
 		4045E49227EDA47300FBF3C2 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
