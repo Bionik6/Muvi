@@ -10,16 +10,16 @@ public struct MediaDetailsView: View {
   @State private var selectedClip: Clip? = nil
   @ObservedObject var viewModel: MediaDetailsViewModel
   @Environment(\.presentationMode) private var presentationMode
-  var castItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
-  var clipItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
-  var playerConfiguration: YouTubePlayer.Configuration {
+  
+  private var castItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+  private var clipItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
+  private var playerConfiguration: YouTubePlayer.Configuration {
     var configuration = YouTubePlayer.Configuration()
     configuration.autoPlay = true
     configuration.allowsPictureInPictureMediaPlayback = true
     configuration.playInline = true
     return configuration
   }
-  
   
   public init(viewModel: MediaDetailsViewModel) {
     self.viewModel = viewModel

@@ -1,5 +1,7 @@
+import Core
 import Combine
 import Foundation
+import Networking
 
 final class SeriesViewModel: ObservableObject {
   private var repository: SerieRepository

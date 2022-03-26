@@ -1,4 +1,6 @@
 import SwiftUI
+import DesignSystem
+import MediaFeature
 
 struct SeriesView: View {
   
