@@ -3,7 +3,7 @@ import SwiftUI
 import DesignSystem
 import YouTubePlayerKit
 
-struct MediaDetailsView: View {
+public struct MediaDetailsView: View {
   
   @State private var selection: Int = 1
   @State private var playTrailer: Bool = false
@@ -20,7 +20,12 @@ struct MediaDetailsView: View {
     return configuration
   }
   
-  var body: some View {
+  
+  public init(viewModel: MediaDetailsViewModel) {
+    self.viewModel = viewModel
+  }
+  
+  public var body: some View {
     ScrollView {
       ZStack(alignment: .bottomLeading) {
         

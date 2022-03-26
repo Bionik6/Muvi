@@ -1,15 +1,14 @@
 import Core
 import SwiftUI
 
-struct MediaCardView: View {
-  
+public struct MediaCardView: View {
   private var media: Media
   
-  init(media: Media) {
+  public init(media: Media) {
     self.media = media
   }
   
-  var body: some View {
+  public var body: some View {
     VStack(alignment: .leading) {
       
       AsyncImage(url: media.posterURL) { image in
@@ -56,9 +55,11 @@ struct MediaCardView: View {
 
 
 
-struct RedactedMovieCardView: View {
+public struct RedactedMovieCardView: View {
   
-  var body: some View {
+  public init() { }
+  
+  public var body: some View {
     VStack(alignment: .leading) {
       Image("spiderman")
         .resizable()

@@ -14,7 +14,7 @@ let package = Package(
     .package(path: "MediaFeature")
   ],
   targets: [
-    .target(name: "MovieFeature", dependencies: ["Core", "Networking", "DesignSystem"]),
+    .target(name: "MovieFeature", dependencies: ["Core", "Networking", "DesignSystem", "MediaFeature"]),
     .testTarget(name: "MovieFeatureTests", dependencies: ["MovieFeature"]),
   ]
 )

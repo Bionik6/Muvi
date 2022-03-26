@@ -3,7 +3,7 @@ import Combine
 import Networking
 
 
-class MediaDetailsViewModel: ObservableObject {
+public class MediaDetailsViewModel: ObservableObject {
   private let repository: MediaDetailsRepository
   private(set) var media: Media
   @Published private(set) var genres: [String] = []
@@ -11,7 +11,7 @@ class MediaDetailsViewModel: ObservableObject {
   @Published private(set) var clips: [Clip] = []
   @Published private(set) var trailerURLString: String?
   
-  init(media: Media, repository: MediaDetailsRepository) {
+  public init(media: Media, repository: MediaDetailsRepository) {
     self.media = media
     self.repository = repository
   }
@@ -29,12 +29,12 @@ class MediaDetailsViewModel: ObservableObject {
 }
 
 
-struct MediaDetailsRepository {
+public struct MediaDetailsRepository {
   private let mediaType: MediaType
   private let remoteMovieDetailsDataSource: RemoteMovieDetailsDataSource
   private let remoteSeriesDetailsDataSource: RemoteSerieDetailsDataSource
   
-  init(
+  public init(
     mediaType: MediaType,
     remoteMovieDetailsDataSource: RemoteMovieDetailsDataSource = .live,
     remoteSeriesDetailsDataSource: RemoteSerieDetailsDataSource = .live
@@ -68,13 +68,13 @@ struct MediaDetailsRepository {
 }
 
 
-struct RemoteMovieDetailsDataSource {
+public struct RemoteMovieDetailsDataSource {
   static var client = APIClient()
   private(set) var movieDetails: (Int) async throws -> RemoteMovieDetails
   private(set) var movieCast: (Int) async throws -> CastResponse
   private(set) var movieClips: (Int) async throws -> ClipResponse
   
-  init(
+  public init(
     movieDetails: @escaping (Int) async throws -> RemoteMovieDetails,
     movieCast: @escaping (Int) async throws -> CastResponse,
     movieClips: @escaping (Int) async throws -> ClipResponse
@@ -84,7 +84,7 @@ struct RemoteMovieDetailsDataSource {
     self.movieClips = movieClips
   }
   
-  static let live = Self(
+  public static let live = Self(
     movieDetails: { id in
       let request = Request(path: "movie/\(id)", method: .get)
       return try await client.execute(request: request)
@@ -101,13 +101,13 @@ struct RemoteMovieDetailsDataSource {
 }
 
 
-struct RemoteSerieDetailsDataSource {
+public struct RemoteSerieDetailsDataSource {
   static var client = APIClient()
   private(set) var serieDetails: (Int) async throws -> RemoteSerieDetails
   private(set) var serieCast: (Int) async throws -> CastResponse
   private(set) var serieClips: (Int) async throws -> ClipResponse
   
-  init(
+  public init(
     serieDetails: @escaping (Int) async throws -> RemoteSerieDetails,
     serieCast: @escaping (Int) async throws -> CastResponse,
     serieClips: @escaping (Int) async throws -> ClipResponse
@@ -117,7 +117,7 @@ struct RemoteSerieDetailsDataSource {
     self.serieClips = serieClips
   }
   
-  static let live = Self(
+  public static let live = Self(
     serieDetails: { id in
       let request = Request(path: "tv/\(id)", method: .get)
       return try await client.execute(request: request)
