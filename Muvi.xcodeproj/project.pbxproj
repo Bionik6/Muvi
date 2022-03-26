@@ -180,6 +180,7 @@
 		4045E41327EAFE4A00FBF3C2 /* Muvi */ = {
 			isa = PBXGroup;
 			children = (
+				40E93E9227EF24220071E8C9 /* App */,
 				4045E48F27EDA14600FBF3C2 /* Series */,
 				4045E45E27EB27D000FBF3C2 /* Info.plist */,
 				4045E46427EBA42E00FBF3C2 /* API */,
@@ -188,8 +189,6 @@
 				4045E44627EB09EE00FBF3C2 /* Models */,
 				4045E44327EB063500FBF3C2 /* Movies */,
 				4045E48927EDA0B000FBF3C2 /* MediaDetails */,
-				4045E41427EAFE4A00FBF3C2 /* MuviApp.swift */,
-				4045E41627EAFE4A00FBF3C2 /* ContentView.swift */,
 				4045E48627EBA51600FBF3C2 /* Storage */,
 				4045E41A27EAFE4B00FBF3C2 /* Preview Content */,
 			);
@@ -422,6 +421,15 @@
 				4045E47927EBA42F00FBF3C2 /* NetworkError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		40E93E9227EF24220071E8C9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4045E41427EAFE4A00FBF3C2 /* MuviApp.swift */,
+				4045E41627EAFE4A00FBF3C2 /* ContentView.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
