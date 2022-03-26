@@ -2,7 +2,6 @@ import Core
 import SwiftUI
 
 public struct ComingSoonCard: View {
- 
   private var media: Media
   
   public init(media: Media) {

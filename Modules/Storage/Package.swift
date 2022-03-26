@@ -12,7 +12,7 @@ let package = Package(
     .package(path: "Core")
   ],
   targets: [
-    .target(name: "Storage", dependencies: ["Core"]),
+    .target(name: "Storage", dependencies: ["Core"], resources: [.process("Resources/Muvi.xcdatamodeld")]),
     .testTarget(name: "StorageTests", dependencies: ["Storage"]),
   ]
 )
