@@ -2,7 +2,7 @@ import Core
 import Foundation
 
 
-struct RemoteMovie: Decodable {
+public struct RemoteMovie: Decodable {
   let id: Int
   let title: String?
   let posterPath: String?
@@ -12,7 +12,7 @@ struct RemoteMovie: Decodable {
   let name: String?
   let firstAirDate: String?
   
-  public init(
+  init(
     id: Int,
     title: String?,
     posterPath: String?,

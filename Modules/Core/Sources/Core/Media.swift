@@ -1,6 +1,6 @@
 import Foundation
 
-enum MediaType {
+public enum MediaType {
   case movie
   case serie
 }

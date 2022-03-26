@@ -1,12 +1,12 @@
 import Core
 import SwiftUI
 
-enum CardType {
+public enum CardType {
   case landscape
   case portrait
 }
 
-struct MediaSection<Content: View>: View {
+public struct MediaSection<Content: View>: View {
   private let media: [Media]
   private let title: String
   private let redactedViewsNumber: Int
@@ -27,7 +27,7 @@ struct MediaSection<Content: View>: View {
     self.content = content
   }
   
-  var body: some View {
+  public var body: some View {
     Section(content: {
       ScrollView(.horizontal, showsIndicators: false) {
         HStack(spacing: 16) {
@@ -50,10 +50,14 @@ struct MediaSection<Content: View>: View {
 
 
 
-struct HeaderView: View {
+public struct HeaderView: View {
   var title: String
   
-  var body: some View {
+  public init(title: String) {
+    self.title = title
+  }
+  
+  public var body: some View {
     HStack {
       Text(title)
         .font(.heading2)

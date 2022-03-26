@@ -2,7 +2,7 @@ import Core
 import Foundation
 
 
-struct RemoteSerieDetails: Decodable {
+public struct RemoteSerieDetails: Decodable {
   struct Genre: Decodable {
     let id: Int
     let name: String
@@ -17,7 +17,7 @@ struct RemoteSerieDetails: Decodable {
   let firstAirDate: String?
   let genres: [Genre]
   
-  public init(
+  init(
     id: Int,
     posterPath: String?,
     voteAverage: Double,

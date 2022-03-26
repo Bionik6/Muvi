@@ -1,5 +1,6 @@
 import Core
 import SwiftUI
+import DesignSystem
 import YouTubePlayerKit
 
 struct MediaDetailsView: View {

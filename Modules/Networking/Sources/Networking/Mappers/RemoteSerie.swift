@@ -2,7 +2,7 @@ import Core
 import Foundation
 
 
-struct RemoteSerie: Decodable {
+public struct RemoteSerie: Decodable {
   let id: Int
   let posterPath: String?
   let voteAverage: Double

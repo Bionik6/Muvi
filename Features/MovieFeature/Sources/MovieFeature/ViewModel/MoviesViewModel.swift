@@ -1,5 +1,6 @@
 import Core
 import Combine
+import Networking
 
 
 final class MoviesViewModel: ObservableObject {
