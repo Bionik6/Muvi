@@ -1,12 +1,18 @@
 import SwiftUI
 
 
-struct PrimaryButton: View {
-  let title: String
-  let systemImage: String
-  let action: () -> ()
+public struct PrimaryButton: View {
+  public private(set) var title: String
+  public private(set) var systemImage: String
+  public private(set) var action: () -> ()
   
-  var body: some View {
+  public init(title: String, systemImage: String, action: @escaping () -> ()) {
+    self.title = title
+    self.systemImage = systemImage
+    self.action = action
+  }
+  
+  public var body: some View {
     Button(action: action) {
       Label(title, systemImage: systemImage)
         .frame(maxWidth: .infinity)
