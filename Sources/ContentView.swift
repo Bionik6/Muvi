@@ -1,6 +1,6 @@
 import SwiftUI
-import CoreData
-
+import MovieFeature
+import SerieFeature
 
 struct ContentView: View {
   

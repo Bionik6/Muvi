@@ -26,6 +26,9 @@
 		40F82ED727EE8AA700C2E00A /* Networking in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ED227EE8AA700C2E00A /* Networking */; };
 		40F82ED827EE8AA700C2E00A /* Utils in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ED327EE8AA700C2E00A /* Utils */; };
 		40F82ED927EE8AA700C2E00A /* Storage in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ED427EE8AA700C2E00A /* Storage */; };
+		40F82EDC27EE9A0600C2E00A /* MovieFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 40F82EDB27EE9A0600C2E00A /* MovieFeature */; };
+		40F82EDE27EE9A0C00C2E00A /* MediaFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 40F82EDD27EE9A0C00C2E00A /* MediaFeature */; };
+		40F82EE027EE9A1900C2E00A /* SerieFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 40F82EDF27EE9A1900C2E00A /* SerieFeature */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F82EE027EE9A1900C2E00A /* SerieFeature in Frameworks */,
+				40F82EDE27EE9A0C00C2E00A /* MediaFeature in Frameworks */,
+				40F82EDC27EE9A0600C2E00A /* MovieFeature in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +112,7 @@
 				4045E42927EAFE4B00FBF3C2 /* MuviTests */,
 				4045E43327EAFE4B00FBF3C2 /* MuviUITests */,
 				4045E41227EAFE4A00FBF3C2 /* Products */,
+				40F82EDA27EE9A0600C2E00A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -199,6 +206,13 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		40F82EDA27EE9A0600C2E00A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,6 +230,9 @@
 			);
 			name = Muvi;
 			packageProductDependencies = (
+				40F82EDB27EE9A0600C2E00A /* MovieFeature */,
+				40F82EDD27EE9A0C00C2E00A /* MediaFeature */,
+				40F82EDF27EE9A1900C2E00A /* SerieFeature */,
 			);
 			productName = Muvi;
 			productReference = 4045E41127EAFE4A00FBF3C2 /* Muvi.app */;
@@ -675,6 +692,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		40F82EDB27EE9A0600C2E00A /* MovieFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MovieFeature;
+		};
+		40F82EDD27EE9A0C00C2E00A /* MediaFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MediaFeature;
+		};
+		40F82EDF27EE9A1900C2E00A /* SerieFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SerieFeature;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4045E40927EAFE4A00FBF3C2 /* Project object */;
 }

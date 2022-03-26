@@ -11,10 +11,9 @@ let package = Package(
     .package(path: "Core"),
     .package(path: "Networking"),
     .package(path: "DesignSystem"),
-    .package(path: "MediaFeature")
   ],
   targets: [
-    .target(name: "MovieFeature", dependencies: ["Core", "Networking", "DesignSystem", "MediaFeature"]),
+    .target(name: "MovieFeature", dependencies: ["Core", "Networking", "DesignSystem"]),
     .testTarget(name: "MovieFeatureTests", dependencies: ["MovieFeature"]),
   ]
 )

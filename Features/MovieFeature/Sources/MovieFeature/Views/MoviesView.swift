@@ -3,11 +3,12 @@ import MediaFeature
 import DesignSystem
 
 
-struct MoviesView: View {
+public struct MoviesView: View {
   @StateObject private var viewModel = MoviesViewModel(repository: .init())
   
-  var body: some View {
-    
+  public init() { }
+  
+  public var body: some View {
     NavigationView {
       ScrollView {
         MediaSection(media: viewModel.comingSoonMovies, title: "Coming Soon", redactedViewsNumber: 3, type: .landscape) {
