@@ -21,4 +21,18 @@ public struct Clip: Identifiable {
   public let key: String
   public let type: ClipType?
   public let publishedDateString: String
+  
+  public init(
+    name: String,
+    site: ClipSite?,
+    key: String,
+    type: ClipType?,
+    publishedDateString: String
+  ) {
+    self.name = name
+    self.site = site
+    self.key = key
+    self.type = type
+    self.publishedDateString = publishedDateString
+  }
 }
