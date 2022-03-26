@@ -11,9 +11,6 @@
 		4045E41727EAFE4A00FBF3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045E41627EAFE4A00FBF3C2 /* ContentView.swift */; };
 		4045E41927EAFE4B00FBF3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4045E41827EAFE4B00FBF3C2 /* Assets.xcassets */; };
 		4045E41C27EAFE4B00FBF3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4045E41B27EAFE4B00FBF3C2 /* Preview Assets.xcassets */; };
-		4045E42B27EAFE4B00FBF3C2 /* MuviTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045E42A27EAFE4B00FBF3C2 /* MuviTests.swift */; };
-		4045E43527EAFE4B00FBF3C2 /* MuviUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045E43427EAFE4B00FBF3C2 /* MuviUITests.swift */; };
-		4045E43727EAFE4B00FBF3C2 /* MuviUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045E43627EAFE4B00FBF3C2 /* MuviUITestsLaunchTests.swift */; };
 		4045E45327EB1AA200FBF3C2 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4045E44F27EB1AA200FBF3C2 /* Inter-Medium.ttf */; };
 		4045E45427EB1AA200FBF3C2 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4045E45027EB1AA200FBF3C2 /* Inter-Regular.ttf */; };
 		4045E45527EB1AA200FBF3C2 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4045E45127EB1AA200FBF3C2 /* Inter-Bold.ttf */; };
@@ -31,34 +28,12 @@
 		40F82EE027EE9A1900C2E00A /* SerieFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 40F82EDF27EE9A1900C2E00A /* SerieFeature */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		4045E42727EAFE4B00FBF3C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4045E40927EAFE4A00FBF3C2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4045E41027EAFE4A00FBF3C2;
-			remoteInfo = Muvi;
-		};
-		4045E43127EAFE4B00FBF3C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4045E40927EAFE4A00FBF3C2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 4045E41027EAFE4A00FBF3C2;
-			remoteInfo = Muvi;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		4045E41127EAFE4A00FBF3C2 /* Muvi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muvi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4045E41427EAFE4A00FBF3C2 /* MuviApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuviApp.swift; sourceTree = "<group>"; };
 		4045E41627EAFE4A00FBF3C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4045E41827EAFE4B00FBF3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4045E41B27EAFE4B00FBF3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4045E42627EAFE4B00FBF3C2 /* MuviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuviTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4045E42A27EAFE4B00FBF3C2 /* MuviTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuviTests.swift; sourceTree = "<group>"; };
-		4045E43027EAFE4B00FBF3C2 /* MuviUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuviUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4045E43427EAFE4B00FBF3C2 /* MuviUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuviUITests.swift; sourceTree = "<group>"; };
-		4045E43627EAFE4B00FBF3C2 /* MuviUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuviUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4045E44F27EB1AA200FBF3C2 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		4045E45027EB1AA200FBF3C2 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		4045E45127EB1AA200FBF3C2 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
@@ -86,20 +61,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4045E42327EAFE4B00FBF3C2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4045E42D27EAFE4B00FBF3C2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -109,8 +70,6 @@
 				40F82ECF27EE8AA700C2E00A /* Modules */,
 				40F82EC827EE8A9700C2E00A /* Features */,
 				4045E41327EAFE4A00FBF3C2 /* Sources */,
-				4045E42927EAFE4B00FBF3C2 /* MuviTests */,
-				4045E43327EAFE4B00FBF3C2 /* MuviUITests */,
 				4045E41227EAFE4A00FBF3C2 /* Products */,
 				40F82EDA27EE9A0600C2E00A /* Frameworks */,
 			);
@@ -120,8 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				4045E41127EAFE4A00FBF3C2 /* Muvi.app */,
-				4045E42627EAFE4B00FBF3C2 /* MuviTests.xctest */,
-				4045E43027EAFE4B00FBF3C2 /* MuviUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,23 +101,6 @@
 				4045E41B27EAFE4B00FBF3C2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		4045E42927EAFE4B00FBF3C2 /* MuviTests */ = {
-			isa = PBXGroup;
-			children = (
-				4045E42A27EAFE4B00FBF3C2 /* MuviTests.swift */,
-			);
-			path = MuviTests;
-			sourceTree = "<group>";
-		};
-		4045E43327EAFE4B00FBF3C2 /* MuviUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4045E43427EAFE4B00FBF3C2 /* MuviUITests.swift */,
-				4045E43627EAFE4B00FBF3C2 /* MuviUITestsLaunchTests.swift */,
-			);
-			path = MuviUITests;
 			sourceTree = "<group>";
 		};
 		4045E44D27EB1A7500FBF3C2 /* Resources */ = {
@@ -238,42 +178,6 @@
 			productReference = 4045E41127EAFE4A00FBF3C2 /* Muvi.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4045E42527EAFE4B00FBF3C2 /* MuviTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4045E43D27EAFE4B00FBF3C2 /* Build configuration list for PBXNativeTarget "MuviTests" */;
-			buildPhases = (
-				4045E42227EAFE4B00FBF3C2 /* Sources */,
-				4045E42327EAFE4B00FBF3C2 /* Frameworks */,
-				4045E42427EAFE4B00FBF3C2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4045E42827EAFE4B00FBF3C2 /* PBXTargetDependency */,
-			);
-			name = MuviTests;
-			productName = MuviTests;
-			productReference = 4045E42627EAFE4B00FBF3C2 /* MuviTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		4045E42F27EAFE4B00FBF3C2 /* MuviUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4045E44027EAFE4B00FBF3C2 /* Build configuration list for PBXNativeTarget "MuviUITests" */;
-			buildPhases = (
-				4045E42C27EAFE4B00FBF3C2 /* Sources */,
-				4045E42D27EAFE4B00FBF3C2 /* Frameworks */,
-				4045E42E27EAFE4B00FBF3C2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4045E43227EAFE4B00FBF3C2 /* PBXTargetDependency */,
-			);
-			name = MuviUITests;
-			productName = MuviUITests;
-			productReference = 4045E43027EAFE4B00FBF3C2 /* MuviUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -286,14 +190,6 @@
 				TargetAttributes = {
 					4045E41027EAFE4A00FBF3C2 = {
 						CreatedOnToolsVersion = 13.3;
-					};
-					4045E42527EAFE4B00FBF3C2 = {
-						CreatedOnToolsVersion = 13.3;
-						TestTargetID = 4045E41027EAFE4A00FBF3C2;
-					};
-					4045E42F27EAFE4B00FBF3C2 = {
-						CreatedOnToolsVersion = 13.3;
-						TestTargetID = 4045E41027EAFE4A00FBF3C2;
 					};
 				};
 			};
@@ -313,8 +209,6 @@
 			projectRoot = "";
 			targets = (
 				4045E41027EAFE4A00FBF3C2 /* Muvi */,
-				4045E42527EAFE4B00FBF3C2 /* MuviTests */,
-				4045E42F27EAFE4B00FBF3C2 /* MuviUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -341,20 +235,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4045E42427EAFE4B00FBF3C2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4045E42E27EAFE4B00FBF3C2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -367,37 +247,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4045E42227EAFE4B00FBF3C2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4045E42B27EAFE4B00FBF3C2 /* MuviTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4045E42C27EAFE4B00FBF3C2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4045E43527EAFE4B00FBF3C2 /* MuviUITests.swift in Sources */,
-				4045E43727EAFE4B00FBF3C2 /* MuviUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4045E42827EAFE4B00FBF3C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4045E41027EAFE4A00FBF3C2 /* Muvi */;
-			targetProxy = 4045E42727EAFE4B00FBF3C2 /* PBXContainerItemProxy */;
-		};
-		4045E43227EAFE4B00FBF3C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 4045E41027EAFE4A00FBF3C2 /* Muvi */;
-			targetProxy = 4045E43127EAFE4B00FBF3C2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4045E43827EAFE4B00FBF3C2 /* Debug */ = {
@@ -531,6 +381,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -561,6 +412,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -573,82 +425,6 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		4045E43E27EAFE4B00FBF3C2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.iciss.MuviTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Muvi.app/Muvi";
-			};
-			name = Debug;
-		};
-		4045E43F27EAFE4B00FBF3C2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.iciss.MuviTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Muvi.app/Muvi";
-			};
-			name = Release;
-		};
-		4045E44127EAFE4B00FBF3C2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.iciss.MuviUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Muvi;
-			};
-			name = Debug;
-		};
-		4045E44227EAFE4B00FBF3C2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZM7Z6QL6F3;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dev.iciss.MuviUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Muvi;
 			};
 			name = Release;
 		};
@@ -669,24 +445,6 @@
 			buildConfigurations = (
 				4045E43B27EAFE4B00FBF3C2 /* Debug */,
 				4045E43C27EAFE4B00FBF3C2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4045E43D27EAFE4B00FBF3C2 /* Build configuration list for PBXNativeTarget "MuviTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4045E43E27EAFE4B00FBF3C2 /* Debug */,
-				4045E43F27EAFE4B00FBF3C2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		4045E44027EAFE4B00FBF3C2 /* Build configuration list for PBXNativeTarget "MuviUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4045E44127EAFE4B00FBF3C2 /* Debug */,
-				4045E44227EAFE4B00FBF3C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
