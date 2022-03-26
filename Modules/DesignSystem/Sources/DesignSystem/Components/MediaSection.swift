@@ -73,4 +73,3 @@ public struct HeaderView: View {
     }.padding(.horizontal)
   }
 }
-

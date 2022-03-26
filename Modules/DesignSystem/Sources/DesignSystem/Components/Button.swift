@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 public struct PrimaryButton: View {
   public let title: String
   public let systemImage: String
