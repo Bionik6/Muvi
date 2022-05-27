@@ -18,7 +18,12 @@ struct PrimaryButton: View {
       RoundedRectangle(cornerRadius: 4, style: .continuous).fill(Color.accentColor)
     })
     .frame(maxWidth: .infinity)
+      .eraseToAnyView()
   }
+
+  #if DEBUG
+  @ObservedObject var iO = injectionObserver
+  #endif
   
 }
 
@@ -38,6 +43,11 @@ struct OutlineButton: View {
     }
     .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.accentColor, lineWidth: 2))
     .frame(maxWidth: .infinity)
+      .eraseToAnyView()
   }
+
+  #if DEBUG
+  @ObservedObject var iO = injectionObserver
+  #endif
   
 }

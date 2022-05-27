@@ -23,11 +23,16 @@ struct ActorView: View {
           .font(.title3)
           .foregroundColor(.white)
           .multilineTextAlignment(.center)
-        Text("as \(actor.characterName ?? "John Doe")" )
+        Text(actor.characterName != nil ?  actor.characterName!.isEmpty ? "" : "as \(actor.characterName!)" : "")
           .font(.caption1)
           .foregroundColor(.secondaryText)
           .multilineTextAlignment(.center)
       }
     }
+      .eraseToAnyView()
   }
+
+  #if DEBUG
+  @ObservedObject var iO = injectionObserver
+  #endif
 }

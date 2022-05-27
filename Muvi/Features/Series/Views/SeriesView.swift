@@ -52,7 +52,12 @@ struct SeriesView: View {
         }.navigationTitle(Text("TV Shows"))
       }
       
+        .eraseToAnyView()
     }
+
+    #if DEBUG
+    @ObservedObject var iO = injectionObserver
+    #endif
 }
 
 struct SeriesView_Previews: PreviewProvider {

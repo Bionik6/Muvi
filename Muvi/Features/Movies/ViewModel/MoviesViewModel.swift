@@ -23,6 +23,13 @@ final class MoviesViewModel: ObservableObject {
     self.trendingMovies = result.trendingMovies.sequentially()
     self.latestMovies = result.latestMovies.sequentially()
     self.popularMovies = result.popularMovies.sequentially()
+      //    await startObserving()
+  }
+  
+  func startObserving() async {
+    for await value in $comingSoonMovies.values {
+      print(value)
+    }
   }
 }
 

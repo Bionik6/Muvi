@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ComingSoonCard: View {
- 
+  
   private var media: Media
   
   init(media: Media) {
@@ -34,7 +34,12 @@ struct ComingSoonCard: View {
     }
     .frame(maxWidth: 216)
     .foregroundColor(.white)
+    .eraseToAnyView()
   }
+  
+#if DEBUG
+  @ObservedObject var iO = injectionObserver
+#endif
 }
 
 
@@ -57,7 +62,13 @@ struct RedactedComingSoonMovieView: View {
     }
     .frame(maxWidth: 216)
     .redacted(reason: .placeholder)
+    .shimmering()
+    .eraseToAnyView()
   }
+  
+#if DEBUG
+  @ObservedObject var iO = injectionObserver
+#endif
 }
 
 struct ComingSoonMovie_Previews: PreviewProvider {

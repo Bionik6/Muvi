@@ -1,6 +1,8 @@
 import SwiftUI
+import Inject
 
 struct MediaCardView: View {
+  @ObservedObject private var iO = Inject.observer
   
   private var media: Media
   
@@ -50,7 +52,10 @@ struct MediaCardView: View {
     }
     .foregroundColor(.white)
     .frame(maxWidth: 152)
+    .eraseToAnyView()
+      //      .enableInjection()
   }
+  
 }
 
 
@@ -91,7 +96,13 @@ struct RedactedMovieCardView: View {
     .frame(maxWidth: 152)
     .foregroundColor(.white)
     .redacted(reason: .placeholder)
+    .shimmering()
+    .eraseToAnyView()
   }
+  
+#if DEBUG
+  @ObservedObject var iO = injectionObserver
+#endif
 }
 
 struct MovieCard_Previews: PreviewProvider {

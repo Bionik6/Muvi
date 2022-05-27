@@ -1,14 +1,16 @@
+import Inject
 import SwiftUI
 
 
 struct MoviesView: View {
+  @ObservedObject private var iO = Inject.observer
   @StateObject private var viewModel = MoviesViewModel(repository: .init())
   
   var body: some View {
     
     NavigationView {
       ScrollView {
-        MediaSection(media: viewModel.comingSoonMovies, title: "Coming Soon", redactedViewsNumber: 3, type: .landscape) {
+        MediaSection(media: viewModel.comingSoonMovies, title: "Upcoming", redactedViewsNumber: 3, type: .landscape) {
           ForEach(viewModel.comingSoonMovies.prefix(8), id: \.id) { movie in
             NavigationLink(
               destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
@@ -17,7 +19,7 @@ struct MoviesView: View {
           }
         }
         
-        MediaSection(media: viewModel.trendingMovies, title: "Trending Now", redactedViewsNumber: 5, type: .portrait) {
+        MediaSection(media: viewModel.trendingMovies, title: "Hot Now 🔥", redactedViewsNumber: 5, type: .portrait) {
           ForEach(viewModel.trendingMovies.prefix(8), id: \.id) { movie in
             NavigationLink(
               destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
@@ -51,6 +53,8 @@ struct MoviesView: View {
         }
       }.navigationTitle(Text("Movies"))
     }
+    .enableInjection()
+    .eraseToAnyView()
   }
 }
 

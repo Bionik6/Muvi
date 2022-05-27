@@ -27,7 +27,12 @@ struct ContentView: View {
       }
       .tabItem({ TabLabel(imageName: "bookmark.fill", label: "Watch List") })
     }.preferredColorScheme(.dark)
+      .eraseToAnyView()
   }
+
+  #if DEBUG
+  @ObservedObject var iO = injectionObserver
+  #endif
   
 }
 
@@ -41,7 +46,12 @@ struct TabLabel: View {
       Image(systemName: imageName)
       Text(label)
     }
+      .eraseToAnyView()
   }
+
+  #if DEBUG
+  @ObservedObject var iO = injectionObserver
+  #endif
 }
 
 

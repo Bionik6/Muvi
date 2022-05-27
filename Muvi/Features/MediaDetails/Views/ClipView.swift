@@ -21,5 +21,10 @@ struct ClipView: View {
         .multilineTextAlignment(.leading)
     }
     
+      .eraseToAnyView()
   }
+
+  #if DEBUG
+  @ObservedObject var iO = injectionObserver
+  #endif
 }

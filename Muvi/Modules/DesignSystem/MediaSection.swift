@@ -44,7 +44,12 @@ struct MediaSection<Content: View>: View {
     }, header: {
       HeaderView(title: title)
     })
+      .eraseToAnyView()
   }
+
+  #if DEBUG
+  @ObservedObject var iO = injectionObserver
+  #endif
 }
 
 
@@ -66,6 +71,11 @@ struct HeaderView: View {
         
       }
     }.padding(.horizontal)
+      .eraseToAnyView()
   }
+
+  #if DEBUG
+  @ObservedObject var iO = injectionObserver
+  #endif
 }
 

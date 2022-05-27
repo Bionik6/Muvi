@@ -22,7 +22,11 @@ extension Media {
   
   var releaseDate: Date {
     let strategy = Date.ISO8601FormatStyle().year().month().day().dateSeparator(.dash)
-    return try! Date(releaseDateString, strategy: strategy)
+    do {
+      return try Date(releaseDateString, strategy: strategy)
+    } catch {
+      return Date()
+    }
   }
   
   var posterURL: URL {
