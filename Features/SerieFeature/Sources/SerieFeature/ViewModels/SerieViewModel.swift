@@ -20,7 +20,12 @@ final class SeriesViewModel: ObservableObject {
     async let trendingSeries = await repository.fetchTrendingSeries()
     async let topRatedSeries = await repository.fetchTopRatedSeries()
     async let popularSeries = await repository.fetchPopularMovies()
-    let result = try await (airingTodaySeries: airingTodaySeries, trendingSeries: trendingSeries, topRatedSeries: topRatedSeries, popularSeries: popularSeries)
+    let result = try await (
+      airingTodaySeries: airingTodaySeries,
+      trendingSeries: trendingSeries,
+      topRatedSeries: topRatedSeries,
+      popularSeries: popularSeries
+    )
     self.airingTodaySeries = result.airingTodaySeries.sequentially()
     self.trendingSeries = result.trendingSeries.lazy.filter { $0.posterPath != nil }.sorted { $0.releaseDate > $1.releaseDate }
     self.topRatedSeries = result.topRatedSeries.lazy.filter { $0.posterPath != nil }.sorted { $0.releaseDate > $1.releaseDate }
@@ -62,25 +67,25 @@ struct SerieRepository {
 struct RemoteSerieDataSource {
   public static var client = APIClient()
   
-  private(set) var airingTodaySeries: () async throws -> SeriesResponse
+  private(set) var popularSeries: () async throws -> SeriesResponse
   private(set) var trendingSeries: () async throws -> SeriesResponse
   private(set) var topRatedSeries: () async throws -> SeriesResponse
-  private(set) var popularSeries: () async throws -> SeriesResponse
+  private(set) var airingTodaySeries: () async throws -> SeriesResponse
   
   public init(
-    airingTodaySeries: @escaping () async throws -> SeriesResponse,
+    popularSeries: @escaping () async throws -> SeriesResponse,
     trendingSeries: @escaping () async throws -> SeriesResponse,
     topRatedSeries: @escaping () async throws -> SeriesResponse,
-    popularSeries: @escaping () async throws -> SeriesResponse
+    airingTodaySeries: @escaping () async throws -> SeriesResponse
   ) {
-    self.airingTodaySeries = airingTodaySeries
+    self.popularSeries = popularSeries
     self.trendingSeries = trendingSeries
     self.topRatedSeries = topRatedSeries
-    self.popularSeries = popularSeries
+    self.airingTodaySeries = airingTodaySeries
   }
   
   public static let live = Self(
-    airingTodaySeries: {
+    popularSeries: {
       let request = Request(path: "tv/airing_today", method: .get)
       return try await client.execute(request: request)
     },
@@ -92,7 +97,7 @@ struct RemoteSerieDataSource {
       let request = Request(path: "tv/top_rated", method: .get)
       return try await client.execute(request: request)
     },
-    popularSeries: {
+    airingTodaySeries: {
       let request = Request(path: "tv/popular", method: .get)
       return try await client.execute(request: request)
     }

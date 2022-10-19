@@ -1,7 +1,8 @@
 import SwiftUI
 import DesignSystem
 import MediaFeature
-
+              
+              
 public struct SeriesView: View {
   
   public init() { }
@@ -11,6 +12,7 @@ public struct SeriesView: View {
   public var body: some View {
     NavigationView {
       ScrollView {
+        
         MediaSection(media: viewModel.airingTodaySeries, title: "Airing Today", redactedViewsNumber: 3, type: .landscape) {
           ForEach(viewModel.airingTodaySeries.prefix(8), id: \.id) { serie in
             NavigationLink(

@@ -26,8 +26,6 @@ public struct APIClient {
     
     var urlRequest = URLRequest(url: url)
     urlRequest.httpMethod = request.method.rawValue
-      //    if let params = request.params { }
-      //    request.params.map { urlRequest.httpBody = try? JSONEncoder().encode($0) }
     
     if let headers = request.headers { headers.forEach { urlRequest.addValue($0.value , forHTTPHeaderField: $0.key) } }
     urlRequest.addValue("application/json;charset=utf-8", forHTTPHeaderField: "Accept")

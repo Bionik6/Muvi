@@ -9,7 +9,7 @@ public struct MediaDetailsView: View {
   @State private var playTrailer: Bool = false
   @State private var selectedClip: Clip? = nil
   @ObservedObject var viewModel: MediaDetailsViewModel
-  @Environment(\.presentationMode) private var presentationMode
+  @Environment(\.dismiss) private var dismiss
   
   private var castItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
   private var clipItemLayout = [GridItem(.flexible()), GridItem(.flexible())]
@@ -51,7 +51,7 @@ public struct MediaDetailsView: View {
         )
         
         VStack(alignment: .leading) {
-          Button(action: { presentationMode.wrappedValue.dismiss() }) {
+          Button(action: { dismiss() }) {
             Image(systemName: "chevron.left")
               .font(.headline)
           }
@@ -90,12 +90,10 @@ public struct MediaDetailsView: View {
       .frame(height: 500)
       .clipped()
       
-      
       Text(viewModel.media.overview)
         .font(.body2)
         .lineSpacing(6)
         .padding(.all, 16)
-      
       
       Picker("", selection: self.$selection) {
         Text("Cast").tag(1)
@@ -145,7 +143,7 @@ public struct MediaDetailsView: View {
         YouTubePlayerView(YouTubePlayer(source: .video(id: youtubeLink), configuration: playerConfiguration))
       }
     })
-    .sheet(item: $selectedClip, onDismiss: { selectedClip = nil }, content: { clip in
+    .sheet(item: $selectedClip, content: { clip in
       YouTubePlayerView(YouTubePlayer(source: .video(id: clip.key), configuration: playerConfiguration))
     })
     .task {

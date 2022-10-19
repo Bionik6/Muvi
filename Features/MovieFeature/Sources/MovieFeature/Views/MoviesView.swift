@@ -15,7 +15,7 @@ public struct MoviesView: View {
           ForEach(viewModel.comingSoonMovies.prefix(8), id: \.id) { movie in
             NavigationLink(
               destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
-              label: { ComingSoonCard(media: movie) }
+              label: { MediaCardView(media: movie) }
             )
           }
         }

@@ -20,7 +20,12 @@ final class MoviesViewModel: ObservableObject {
     async let trendingMovies = await repository.fetchTrendingMovies()
     async let latestMovies = await repository.fetchLatestMovies()
     async let popularMovies = await repository.fetchPopularMovies()
-    let result = try await (comingSoonMovies: comingSoonMovies, trendingMovies: trendingMovies, latestMovies: latestMovies, popularMovies: popularMovies)
+    let result = try await (
+      comingSoonMovies: comingSoonMovies,
+      trendingMovies: trendingMovies,
+      latestMovies: latestMovies,
+      popularMovies: popularMovies
+    )
     self.comingSoonMovies = result.comingSoonMovies.sequentially()
     self.trendingMovies = result.trendingMovies.sequentially()
     self.latestMovies = result.latestMovies.sequentially()

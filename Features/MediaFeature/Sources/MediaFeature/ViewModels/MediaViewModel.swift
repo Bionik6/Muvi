@@ -5,8 +5,8 @@ import Networking
 
 
 public class MediaDetailsViewModel: ObservableObject {
-  private let repository: MediaDetailsRepository
   private(set) var media: Media
+  private let repository: MediaDetailsRepository
   @Published private(set) var cast: [Actor] = []
   @Published private(set) var clips: [Clip] = []
   @Published private(set) var genres: [String] = []
@@ -103,15 +103,15 @@ public struct RemoteMovieDetailsDataSource {
   
   public static let live = Self(
     movieDetails: { id in
-      let request = Request(path: "movie/\(id)", method: .get)
+      let request = Request(path: "movie/\(id)")
       return try await client.execute(request: request)
     },
     movieCast: { id in
-      let request = Request(path: "movie/\(id)/credits", method: .get)
+      let request = Request(path: "movie/\(id)/credits")
       return try await client.execute(request: request)
     },
     movieClips: { id in
-      let request = Request(path: "movie/\(id)/videos", method: .get)
+      let request = Request(path: "movie/\(id)/videos")
       return try await client.execute(request: request)
     }
   )
@@ -136,15 +136,15 @@ public struct RemoteSerieDetailsDataSource {
   
   public static let live = Self(
     serieDetails: { id in
-      let request = Request(path: "tv/\(id)", method: .get)
+      let request = Request(path: "tv/\(id)")
       return try await client.execute(request: request)
     },
     serieCast: { id in
-      let request = Request(path: "tv/\(id)/credits", method: .get)
+      let request = Request(path: "tv/\(id)/credits")
       return try await client.execute(request: request)
     },
     serieClips: { id in
-      let request = Request(path: "tv/\(id)/videos", method: .get)
+      let request = Request(path: "tv/\(id)/videos")
       return try await client.execute(request: request)
     }
   )

@@ -9,11 +9,23 @@ let package = Package(
   ],
   dependencies: [
     .package(path: "Core"),
+    .package(path: "Shared"),
     .package(path: "Networking"),
-    .package(path: "DesignSystem"),
+    .package(path: "MediaFeature"),
   ],
   targets: [
-    .target(name: "MovieFeature", dependencies: ["Core", "Networking", "DesignSystem"]),
-    .testTarget(name: "MovieFeatureTests", dependencies: ["MovieFeature"]),
+    .target(
+      name: "MovieFeature",
+      dependencies: [
+        "Core",
+        "Networking",
+        "MediaFeature",
+        .product(name: "Navigation", package: "Shared"),
+        .product(name: "DesignSystem", package: "Shared"),
+      ]),
+    .testTarget(
+      name: "MovieFeatureTests",
+      dependencies: ["MovieFeature"]
+    ),
   ]
 )
