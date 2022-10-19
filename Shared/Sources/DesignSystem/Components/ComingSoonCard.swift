@@ -1,4 +1,4 @@
-import Core
+import Domain
 import SwiftUI
 
 public struct ComingSoonCard: View {
