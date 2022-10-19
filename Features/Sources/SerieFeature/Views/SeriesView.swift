@@ -1,13 +1,12 @@
 import SwiftUI
 import DesignSystem
 import MediaFeature
-              
-              
+
+
 public struct SeriesView: View {
+  @StateObject private var viewModel = SeriesViewModel(repository: .init())
   
   public init() { }
-  
-  @StateObject private var viewModel = SeriesViewModel(repository: .init())
   
   public var body: some View {
     NavigationView {
