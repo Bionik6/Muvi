@@ -12,7 +12,6 @@ let package = Package(
   dependencies: [
     .package(path: "Core"),
     .package(path: "Shared"),
-    // .package(url: "https://github.com/evgenyneu/keychain-swift", from: "20.0.0"),
     .package(url: "https://github.com/SvenTiigi/YouTubePlayerKit.git", from: "1.1.9")
   ],
   targets: [
