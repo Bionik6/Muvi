@@ -1,27 +1,24 @@
 import SwiftUI
+import Navigation
 import DesignSystem
 import MediaDetails
 
 
 public struct SeriesView: View {
+  @Environment(\.router) var router
   @StateObject private var viewModel = SeriesViewModel(repository: .init())
   
   public init() { }
   
   public var body: some View {
-    /* NavigationView {
+    NavigationView {
       ScrollView {
         
         MediaSection(media: viewModel.airingTodaySeries, title: "Airing Today", redactedViewsNumber: 3, type: .landscape) {
           ForEach(viewModel.airingTodaySeries.prefix(8), id: \.id) { serie in
             NavigationLink(
-              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: serie, repository: .init(mediaType: .serie))),
-              label: { MediaCardView(media: serie) }
-            )
-            
-            NavigationLink(
               destination: router.resolve(path: "/media-details")
-                .environmentObject(MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
+                .environmentObject(MediaDetailsViewModel(media: serie, repository: .init(mediaType: .serie))),
               label: { MediaCardView(media: serie) }
             )
           }
@@ -30,7 +27,8 @@ public struct SeriesView: View {
         MediaSection(media: viewModel.trendingSeries, title: "Trending Now", redactedViewsNumber: 5, type: .portrait) {
           ForEach(viewModel.trendingSeries.prefix(8), id: \.id) { serie in
             NavigationLink(
-              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: serie, repository: .init(mediaType: .serie))),
+              destination: router.resolve(path: "/media-details")
+                .environmentObject(MediaDetailsViewModel(media: serie, repository: .init(mediaType: .serie))),
               label: { MediaCardView(media: serie) }
             )
           }
@@ -39,7 +37,8 @@ public struct SeriesView: View {
         MediaSection(media: viewModel.topRatedSeries, title: "Top Rated", redactedViewsNumber: 5, type: .portrait) {
           ForEach(viewModel.topRatedSeries.prefix(8), id: \.id) { serie in
             NavigationLink(
-              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: serie, repository: .init(mediaType: .serie))),
+              destination: router.resolve(path: "/media-details")
+                .environmentObject(MediaDetailsViewModel(media: serie, repository: .init(mediaType: .serie))),
               label: { MediaCardView(media: serie) }
             )
           }
@@ -48,7 +47,8 @@ public struct SeriesView: View {
         MediaSection(media: viewModel.popularSeries, title: "Hits Box Office", redactedViewsNumber: 5, type: .portrait) {
           ForEach(viewModel.popularSeries.prefix(8), id: \.id) { serie in
             NavigationLink(
-              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: serie, repository: .init(mediaType: .serie))),
+              destination: router.resolve(path: "/media-details")
+                .environmentObject(MediaDetailsViewModel(media: serie, repository: .init(mediaType: .serie))),
               label: { MediaCardView(media: serie) }
             )
           }
@@ -61,9 +61,8 @@ public struct SeriesView: View {
           print(error)
         }
       }.navigationTitle(Text("TV Shows"))
-    } */
+    }
     
-    Text("Hello")
   }
 }
 
