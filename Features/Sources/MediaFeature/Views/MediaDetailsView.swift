@@ -63,7 +63,7 @@ public struct MediaDetailsView: View {
             Text(viewModel.genres.joined(separator: ", ")).padding(.all, 0)
             HStack {
               HStack(spacing: 2) {
-                Image("star")
+                Image.star
                   .resizable()
                   .frame(width: 13, height: 13)
                   .foregroundColor(.mainOrange)

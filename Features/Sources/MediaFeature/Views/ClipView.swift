@@ -13,7 +13,7 @@ struct ClipView: View {
         .fill(Color(hex: "292929"))
         .frame(height: 92)
         .overlay {
-          Image("youtube")
+          Image.youtube
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(height: 80)

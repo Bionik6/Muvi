@@ -17,7 +17,7 @@ public struct ComingSoonCard: View {
           .frame(width: 216, height: 122)
           .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
       } placeholder: {
-        Image("thumbnail")
+        Image.thumbnail
           .resizable()
           .frame(width: 216, height: 122)
           .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
@@ -44,7 +44,7 @@ public struct RedactedComingSoonMovieView: View {
   
   public var body: some View {
     VStack(alignment: .leading) {
-      Image("thumbnail")
+      Image.thumbnail
         .resizable()
         .frame(width: 216, height: 122)
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
