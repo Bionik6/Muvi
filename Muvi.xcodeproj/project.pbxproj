@@ -12,8 +12,6 @@
 		4045E41727EAFE4A00FBF3C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045E41627EAFE4A00FBF3C2 /* ContentView.swift */; };
 		4045E41927EAFE4B00FBF3C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4045E41827EAFE4B00FBF3C2 /* Assets.xcassets */; };
 		4045E41C27EAFE4B00FBF3C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4045E41B27EAFE4B00FBF3C2 /* Preview Assets.xcassets */; };
-		4045E41E27EAFE4B00FBF3C2 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045E41D27EAFE4B00FBF3C2 /* Persistence.swift */; };
-		4045E42127EAFE4B00FBF3C2 /* Muvi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4045E41F27EAFE4B00FBF3C2 /* Muvi.xcdatamodeld */; };
 		4045E42B27EAFE4B00FBF3C2 /* MuviTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045E42A27EAFE4B00FBF3C2 /* MuviTests.swift */; };
 		4045E43527EAFE4B00FBF3C2 /* MuviUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045E43427EAFE4B00FBF3C2 /* MuviUITests.swift */; };
 		4045E43727EAFE4B00FBF3C2 /* MuviUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4045E43627EAFE4B00FBF3C2 /* MuviUITestsLaunchTests.swift */; };
@@ -83,8 +81,6 @@
 		4045E41627EAFE4A00FBF3C2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4045E41827EAFE4B00FBF3C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4045E41B27EAFE4B00FBF3C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4045E41D27EAFE4B00FBF3C2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		4045E42027EAFE4B00FBF3C2 /* Muvi.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Muvi.xcdatamodel; sourceTree = "<group>"; };
 		4045E42627EAFE4B00FBF3C2 /* MuviTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuviTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4045E42A27EAFE4B00FBF3C2 /* MuviTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuviTests.swift; sourceTree = "<group>"; };
 		4045E43027EAFE4B00FBF3C2 /* MuviUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuviUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -338,15 +334,6 @@
 			path = Mappers;
 			sourceTree = "<group>";
 		};
-		4045E48627EBA51600FBF3C2 /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				4045E41D27EAFE4B00FBF3C2 /* Persistence.swift */,
-				4045E41F27EAFE4B00FBF3C2 /* Muvi.xcdatamodeld */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
 		4045E48927EDA0B000FBF3C2 /* MediaDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,7 +435,6 @@
 				4045E46427EBA42E00FBF3C2 /* API */,
 				4045E45727EB1ABC00FBF3C2 /* DesignSystem */,
 				4045E44627EB09EE00FBF3C2 /* Models */,
-				4045E48627EBA51600FBF3C2 /* Storage */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -602,7 +588,6 @@
 				40B154DD27EDE7BC0022CA01 /* RemoteMovieDetails.swift in Sources */,
 				40B154D627EDC34B0022CA01 /* SerieViewModel.swift in Sources */,
 				4045E44527EB071C00FBF3C2 /* ComingSoonCard.swift in Sources */,
-				4045E41E27EAFE4B00FBF3C2 /* Persistence.swift in Sources */,
 				4045E48527EBA4C600FBF3C2 /* NetworkError.swift in Sources */,
 				4045E45B27EB1ADF00FBF3C2 /* Color.swift in Sources */,
 				40B154E527EE09B90022CA01 /* Clip.swift in Sources */,
@@ -623,7 +608,6 @@
 				4045E46327EB95BD00FBF3C2 /* MoviesViewModel.swift in Sources */,
 				4045E47B27EBA43800FBF3C2 /* HTTPMethod.swift in Sources */,
 				40B154EF27EE206A0022CA01 /* MediaDetailsView.swift in Sources */,
-				4045E42127EAFE4B00FBF3C2 /* Muvi.xcdatamodeld in Sources */,
 				4045E44A27EB0F9200FBF3C2 /* Actor.swift in Sources */,
 				4045E45927EB1ACC00FBF3C2 /* Fonts.swift in Sources */,
 				4045E47A27EBA43800FBF3C2 /* RequestParams.swift in Sources */,
@@ -999,19 +983,6 @@
 			productName = YouTubePlayerKit;
 		};
 /* End XCSwiftPackageProductDependency section */
-
-/* Begin XCVersionGroup section */
-		4045E41F27EAFE4B00FBF3C2 /* Muvi.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				4045E42027EAFE4B00FBF3C2 /* Muvi.xcdatamodel */,
-			);
-			currentVersion = 4045E42027EAFE4B00FBF3C2 /* Muvi.xcdatamodel */;
-			path = Muvi.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 4045E40927EAFE4A00FBF3C2 /* Project object */;
 }

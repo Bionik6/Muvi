@@ -9,15 +9,23 @@ import SwiftUI
 
 @main
 struct MuviApp: App {
-  let persistenceController = PersistenceController.shared
   
   var body: some Scene {
     WindowGroup {
       ContentView()
-        .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
 
 // This code can be found in the Swift package:
 // https://github.com/johnno1962/HotSwiftUI
