@@ -14,7 +14,13 @@ let package = Package(
   ],
   targets: [
     .target(name: "Navigation", dependencies: []),
-    .target(name: "DesignSystem", dependencies: [.product(name: "Domain", package: "Core")]),
+    .target(
+      name: "DesignSystem",
+      dependencies: [
+        .product(name: "Domain", package: "Core")
+      ],
+      resources: [.process("Resources")]
+    ),
     .target(
       name: "MediaDetails",
       dependencies: [

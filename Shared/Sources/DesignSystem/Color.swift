@@ -1,23 +1,11 @@
 import SwiftUI
 
 extension Color {
-  
-  public static var primaryText: Color {
-     Color(UIColor.white)
-  }
-  
-  public static var secondaryText: Color {
-    Color(hex: "#9F9FA2")
-  }
-  
-  public static var mainOrange: Color {
-    Color(hex: "#FE9920")
-  }
-  
-  public static var background: Color {
-    Color(hex: "#0F1016")
-  }
-  
+  public static let accent = Color("AccentColor", bundle: .module)
+  public static let primaryText = Color.white
+  public static let secondaryText = Color(hex: "#9F9FA2")
+  public static let mainOrange = Color(hex: "#FE9920")
+  public static let background = Color(hex: "#0F1016")
 }
 
 

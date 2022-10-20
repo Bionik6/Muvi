@@ -18,7 +18,7 @@ public struct MediaCardView: View {
           .frame(width: 152, height: 204)
           .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
       } placeholder: {
-        Image("spiderman")
+        Image.spiderman
           .resizable()
           .aspectRatio(contentMode: .fill)
           .frame(width: 152, height: 204)
@@ -37,7 +37,7 @@ public struct MediaCardView: View {
             .foregroundColor(.secondaryText)
           Spacer()
           HStack(spacing: 2) {
-            Image("star")
+            Image.star
               .resizable()
               .frame(width: 13, height: 13)
               .foregroundColor(.mainOrange)
@@ -61,7 +61,7 @@ public struct RedactedMovieCardView: View {
   
   public var body: some View {
     VStack(alignment: .leading) {
-      Image("spiderman")
+      Image.spiderman
         .resizable()
         .aspectRatio(contentMode: .fill)
         .frame(width: 152, height: 204)
@@ -79,7 +79,7 @@ public struct RedactedMovieCardView: View {
             .foregroundColor(.secondaryText)
           Spacer()
           HStack(spacing: 2) {
-            Image("star")
+            Image.star
               .resizable()
               .frame(width: 13, height: 13)
               .foregroundColor(.mainOrange)

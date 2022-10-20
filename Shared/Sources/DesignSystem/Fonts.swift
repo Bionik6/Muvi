@@ -1,6 +1,6 @@
 import SwiftUI
 
-public enum Inter: String {
+public enum Inter: String, CaseIterable {
   case regular = "Inter-Regular"
   case medium = "Inter-Medium"
   case semiBold = "Inter-SemiBold"
@@ -51,5 +51,36 @@ extension Font {
   
   public static var button: Font {
     return .inter(.medium, size: 16)
+  }
+}
+
+
+public struct InterFont {
+  public static func registerFonts() {
+    Inter.allCases.forEach {
+      registerFont(bundle: .module, fontName: $0.rawValue, fontExtension: "ttf")
+    }
+  }
+  
+  fileprivate static func registerFont(bundle: Bundle, fontName: String, fontExtension: String) {
+    guard let fontURL = bundle.url(forResource: fontName, withExtension: fontExtension),
+          let fontDataProvider = CGDataProvider(url: fontURL as CFURL),
+          let font = CGFont(fontDataProvider) else {
+      fatalError("Couldn't create font from filename: \(fontName) with extension \(fontExtension)")
+    }
+    
+    var error: Unmanaged<CFError>?
+    CTFontManagerRegisterGraphicsFont(font, &error)
+  }
+  
+}
+
+
+extension View {
+  /// Attach this to any Xcode Preview's view to have custom fonts displayed
+  /// Note: Not needed for the actual app
+  public func loadCustomFonts() -> some View {
+    InterFont.registerFonts()
+    return self
   }
 }

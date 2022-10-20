@@ -34,7 +34,7 @@ public struct MediaDetailsView: View {
             .aspectRatio(contentMode: .fill)
             .frame(height: 500)
         } placeholder: {
-          Image("spiderman")
+          Image.spiderman
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(height: 500)

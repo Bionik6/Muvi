@@ -20,7 +20,7 @@ public struct PrimaryButton: View {
         .font(.button)
     }
     .background(content: {
-      RoundedRectangle(cornerRadius: 4, style: .continuous).fill(Color.accentColor)
+      RoundedRectangle(cornerRadius: 4, style: .continuous).fill(Color.accent)
     })
     .frame(maxWidth: .infinity)
   }
@@ -44,10 +44,10 @@ public struct OutlineButton: View {
       Label(title, systemImage: systemImage)
         .frame(maxWidth: .infinity)
         .padding(.vertical, 12)
-        .foregroundColor(.accentColor)
-        .font(.button)
+        .foregroundColor(.accent)
+        .font(.title3)
     }
-    .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.accentColor, lineWidth: 2))
+    .overlay(RoundedRectangle(cornerRadius: 4).stroke(Color.accent, lineWidth: 2))
     .frame(maxWidth: .infinity)
   }
   

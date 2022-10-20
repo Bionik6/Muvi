@@ -65,8 +65,8 @@ public struct HeaderView: View {
       Button {
       } label: {
         HStack(spacing: 6) {
-          Text("See All").foregroundColor(.accentColor).font(.button)
-          Image(systemName: "chevron.right").foregroundColor(.accentColor).font(.caption)
+          Text("See All").foregroundColor(Color.accent).font(.button)
+          Image(systemName: "chevron.right").foregroundColor(.accent).font(.caption)
         }
         
       }

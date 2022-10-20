@@ -11,7 +11,6 @@ struct ContentView: View {
         ZStack {
           Color.background.edgesIgnoringSafeArea(.all)
           router.resolve(path: "/movies")
-          // MoviesView()
         }
       }
       .tabItem({ TabLabel(imageName: "play.tv.fill", label: "Movies") })
@@ -20,7 +19,6 @@ struct ContentView: View {
         ZStack {
           Color.background.edgesIgnoringSafeArea(.all)
           router.resolve(path: "/tv-shows")
-          // SeriesView()
         }
       }
       .tabItem({ TabLabel(imageName: "rectangle.stack.badge.play.fill", label: "TV Shows") })
@@ -29,7 +27,9 @@ struct ContentView: View {
         Text("Watch List")
       }
       .tabItem({ TabLabel(imageName: "bookmark.fill", label: "Watch List") })
-    }.preferredColorScheme(.dark)
+    }
+    .preferredColorScheme(.dark)
+    .accentColor(.accent)
   }
   
 }
