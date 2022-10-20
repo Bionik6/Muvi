@@ -2,9 +2,9 @@ import Domain
 import SwiftUI
 
 public struct ComingSoonCard: View {
-  private var media: Media
+  private var media: any Media
   
-  public init(media: Media) {
+  public init(media: any Media) {
     self.media = media
   }
   

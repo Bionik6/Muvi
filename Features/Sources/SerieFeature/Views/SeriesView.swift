@@ -1,6 +1,6 @@
 import SwiftUI
 import DesignSystem
-import MediaFeature
+import MediaDetails
 
 
 public struct SeriesView: View {
@@ -9,14 +9,20 @@ public struct SeriesView: View {
   public init() { }
   
   public var body: some View {
-    NavigationView {
+    /* NavigationView {
       ScrollView {
         
         MediaSection(media: viewModel.airingTodaySeries, title: "Airing Today", redactedViewsNumber: 3, type: .landscape) {
           ForEach(viewModel.airingTodaySeries.prefix(8), id: \.id) { serie in
             NavigationLink(
               destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: serie, repository: .init(mediaType: .serie))),
-              label: { ComingSoonCard(media: serie) }
+              label: { MediaCardView(media: serie) }
+            )
+            
+            NavigationLink(
+              destination: router.resolve(path: "/media-details")
+                .environmentObject(MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
+              label: { MediaCardView(media: serie) }
             )
           }
         }
@@ -55,8 +61,9 @@ public struct SeriesView: View {
           print(error)
         }
       }.navigationTitle(Text("TV Shows"))
-    }
+    } */
     
+    Text("Hello")
   }
 }
 

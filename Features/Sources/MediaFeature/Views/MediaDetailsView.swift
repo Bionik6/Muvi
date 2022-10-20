@@ -1,14 +1,15 @@
 import Domain
 import SwiftUI
 import DesignSystem
+import MediaDetails
 import YouTubePlayerKit
 
+
 public struct MediaDetailsView: View {
-  
   @State private var selection: Int = 1
   @State private var playTrailer: Bool = false
   @State private var selectedClip: Clip? = nil
-  @ObservedObject var viewModel: MediaDetailsViewModel
+  @EnvironmentObject var viewModel: MediaDetailsViewModel
   @Environment(\.dismiss) private var dismiss
   
   private var castItemLayout = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
@@ -21,9 +22,7 @@ public struct MediaDetailsView: View {
     return configuration
   }
   
-  public init(viewModel: MediaDetailsViewModel) {
-    self.viewModel = viewModel
-  }
+  public init() { }
   
   public var body: some View {
     ScrollView {
@@ -160,7 +159,8 @@ public struct MediaDetailsView: View {
 struct MediaDetailsView_Previews: PreviewProvider {
   static var previews: some View {
     let movie = Movie(id: 1, title: "Batman", posterPath: "", vote: 8.3, releaseDateString: "", overview: "")
-    MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: MediaDetailsRepository(mediaType: .movie)))
+    MediaDetailsView()
+      .environmentObject(MediaDetailsViewModel(media: movie, repository: MediaDetailsRepository(mediaType: .movie)))
   }
 }
 

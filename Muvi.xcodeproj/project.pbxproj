@@ -15,6 +15,7 @@
 		4045E45427EB1AA200FBF3C2 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4045E45027EB1AA200FBF3C2 /* Inter-Regular.ttf */; };
 		4045E45527EB1AA200FBF3C2 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4045E45127EB1AA200FBF3C2 /* Inter-Bold.ttf */; };
 		4045E45627EB1AA200FBF3C2 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4045E45227EB1AA200FBF3C2 /* Inter-SemiBold.ttf */; };
+		404DDC012900CB550092FA87 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404DDC002900CB550092FA87 /* AppRouter.swift */; };
 		40F82ED627EE8AA700C2E00A /* Core in Resources */ = {isa = PBXBuildFile; fileRef = 40F82ED127EE8AA700C2E00A /* Core */; };
 		40F82EDC27EE9A0600C2E00A /* MovieFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 40F82EDB27EE9A0600C2E00A /* MovieFeature */; };
 		40F82EDE27EE9A0C00C2E00A /* MediaFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 40F82EDD27EE9A0C00C2E00A /* MediaFeature */; };
@@ -35,6 +36,7 @@
 		4045E45227EB1AA200FBF3C2 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		4045E45E27EB27D000FBF3C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4045E48827EBD0E100FBF3C2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		404DDC002900CB550092FA87 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		40F82ED127EE8AA700C2E00A /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,6 +82,7 @@
 				4045E41427EAFE4A00FBF3C2 /* MuviApp.swift */,
 				4045E41627EAFE4A00FBF3C2 /* ContentView.swift */,
 				4045E41A27EAFE4B00FBF3C2 /* Preview Content */,
+				404DDC002900CB550092FA87 /* AppRouter.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			files = (
 				4045E41727EAFE4A00FBF3C2 /* ContentView.swift in Sources */,
 				4045E41527EAFE4A00FBF3C2 /* MuviApp.swift in Sources */,
+				404DDC012900CB550092FA87 /* AppRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +348,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -375,6 +380,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

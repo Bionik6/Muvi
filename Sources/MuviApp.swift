@@ -2,10 +2,14 @@ import SwiftUI
 
 @main
 struct MuviApp: App {
+  
+  init() {
+    AppRouter.registerRoutes()
+  }
+  
   var body: some Scene {
     WindowGroup {
       ContentView()
-        // .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
   }
 }

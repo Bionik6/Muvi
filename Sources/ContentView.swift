@@ -3,13 +3,15 @@ import MovieFeature
 import SerieFeature
 
 struct ContentView: View {
+  @Environment(\.router) var router
   
   var body: some View {
     TabView {
       VStack {
         ZStack {
           Color.background.edgesIgnoringSafeArea(.all)
-          MoviesView()
+          router.resolve(path: "/movies")
+          // MoviesView()
         }
       }
       .tabItem({ TabLabel(imageName: "play.tv.fill", label: "Movies") })
@@ -17,7 +19,8 @@ struct ContentView: View {
       VStack {
         ZStack {
           Color.background.edgesIgnoringSafeArea(.all)
-          SeriesView()
+          router.resolve(path: "/tv-shows")
+          // SeriesView()
         }
       }
       .tabItem({ TabLabel(imageName: "rectangle.stack.badge.play.fill", label: "TV Shows") })

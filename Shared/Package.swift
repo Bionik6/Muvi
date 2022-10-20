@@ -3,9 +3,10 @@ import PackageDescription
 
 let package = Package(
   name: "Shared",
-  platforms: [.iOS(.v15)],
+  platforms: [.iOS(.v16)],
   products: [
     .library(name: "Navigation", targets: ["Navigation"]),
+    .library(name: "MediaDetails", targets: ["MediaDetails"]),
     .library(name: "DesignSystem", targets: ["DesignSystem"]),
   ],
   dependencies: [
@@ -13,6 +14,13 @@ let package = Package(
   ],
   targets: [
     .target(name: "Navigation", dependencies: []),
-    .target(name: "DesignSystem", dependencies: [.product(name: "Domain", package: "Core")])
+    .target(name: "DesignSystem", dependencies: [.product(name: "Domain", package: "Core")]),
+    .target(
+      name: "MediaDetails",
+      dependencies: [
+        .product(name: "Domain", package: "Core"),
+        .product(name: "Networking", package: "Core")
+      ]
+    )
   ]
 )

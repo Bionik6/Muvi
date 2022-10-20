@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Serie: Media {
+public struct Serie: Media, Hashable {
   public let id: Int
   public let title: String
   public let posterPath: String?

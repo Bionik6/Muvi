@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
   name: "Features",
-  platforms: [.iOS(.v15)],
+  platforms: [.iOS(.v16)],
   products: [
     .library(name: "MediaFeature", targets: ["MediaFeature"]),
     .library(name: "MovieFeature", targets: ["MovieFeature"]),
@@ -13,7 +13,7 @@ let package = Package(
     .package(path: "Core"),
     .package(path: "Shared"),
     // .package(url: "https://github.com/evgenyneu/keychain-swift", from: "20.0.0"),
-    .package(url: "https://github.com/SvenTiigi/YouTubePlayerKit.git", from: "1.1.9")
+    .package(url: "https://github.com/SvenTiigi/YouTubePlayerKit.git", from: "1.1.9"),
   ],
   targets: [
     .target(
@@ -24,7 +24,8 @@ let package = Package(
         .product(name: "Networking", package: "Core"),
         .product(name: "Navigation", package: "Shared"),
         .product(name: "DesignSystem", package: "Shared"),
-        "YouTubePlayerKit"
+        .product(name: "MediaDetails", package: "Shared"),
+        "YouTubePlayerKit",
       ]
     ),
     .target(
@@ -34,8 +35,8 @@ let package = Package(
         .product(name: "Storage", package: "Core"),
         .product(name: "Networking", package: "Core"),
         .product(name: "Navigation", package: "Shared"),
+        .product(name: "MediaDetails", package: "Shared"),
         .product(name: "DesignSystem", package: "Shared"),
-        "MediaFeature"
       ]
     ),
     .target(
@@ -45,8 +46,8 @@ let package = Package(
         .product(name: "Storage", package: "Core"),
         .product(name: "Networking", package: "Core"),
         .product(name: "Navigation", package: "Shared"),
+        .product(name: "MediaDetails", package: "Shared"),
         .product(name: "DesignSystem", package: "Shared"),
-        "MediaFeature"
       ]
     ),
   ]

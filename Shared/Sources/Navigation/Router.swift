@@ -24,8 +24,10 @@ public struct NavigationRoute {
 
 public class Router: ObservableObject {
   public var registeredRoutes: [NavigationRoute] = []
+ 
+  public static let shared = Router()
   
-  public init() { }
+  private init() { }
   
   public func resolve(path: String) -> some View {
     guard let route = registeredRoutes.first(where: { $0.path == path }) else { fatalError("route not registered") }

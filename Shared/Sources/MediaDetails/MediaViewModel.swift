@@ -1,23 +1,21 @@
 import Domain
 import Combine
-import Storage
 import Networking
 
-
 public class MediaDetailsViewModel: ObservableObject {
-  private(set) var media: Media
+  public private(set) var media: Media
   private let repository: MediaDetailsRepository
-  @Published private(set) var cast: [Actor] = []
-  @Published private(set) var clips: [Clip] = []
-  @Published private(set) var genres: [String] = []
-  @Published private(set) var trailerURLString: String?
+  @Published public private(set) var cast: [Actor] = []
+  @Published public private(set) var clips: [Clip] = []
+  @Published public private(set) var genres: [String] = []
+  @Published public private(set) var trailerURLString: String?
   
   public init(media: Media, repository: MediaDetailsRepository) {
     self.media = media
     self.repository = repository
   }
   
-  @MainActor func fetchAllMediaDetails() async throws {
+  @MainActor public func fetchAllMediaDetails() async throws {
     async let mediaDetails = await repository.fetchMediaDetails(id: media.id)
     async let cast = await repository.fetchMediaCast(id: media.id)
     async let clips = await repository.fetchMediaClips(id: media.id)
@@ -64,22 +62,6 @@ public struct MediaDetailsRepository {
       case .movie: return try await remoteMovieDetailsDataSource.movieClips(id).results.compactMap { $0.model }
       case .serie: return try await remoteSeriesDetailsDataSource.serieClips(id).results.compactMap { $0.model }
     }
-  }
-  
-}
-
-
-public struct LocalMediaDetailDataSource {
-  static let persistence: PersistenceController = .init()
-  private(set) var addMedia: (Media) async throws -> Bool
-  private(set) var removeMedia: (Media) async throws -> Bool
-  
-  public init(
-    addMedia: @escaping (Media) async throws -> Bool,
-    removeMedia: @escaping (Media) async throws -> Bool
-  ) {
-    self.addMedia = addMedia
-    self.removeMedia = removeMedia
   }
   
 }

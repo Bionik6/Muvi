@@ -1,11 +1,11 @@
 import SwiftUI
-import MediaFeature
 import Navigation
+import MediaDetails
 import DesignSystem
 
 
 public struct MoviesView: View {
-  @EnvironmentObject var router: Router
+  @Environment(\.router) var router
   @StateObject private var viewModel = MoviesViewModel(repository: .init())
   
   public init() { }
@@ -16,7 +16,8 @@ public struct MoviesView: View {
         MediaSection(media: viewModel.comingSoonMovies, title: "Coming Soon", redactedViewsNumber: 3, type: .landscape) {
           ForEach(viewModel.comingSoonMovies.prefix(8), id: \.id) { movie in
             NavigationLink(
-              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
+              destination: router.resolve(path: "/media-details")
+                .environmentObject(MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
               label: { MediaCardView(media: movie) }
             )
           }
@@ -25,7 +26,8 @@ public struct MoviesView: View {
         MediaSection(media: viewModel.trendingMovies, title: "Trending Now", redactedViewsNumber: 5, type: .portrait) {
           ForEach(viewModel.trendingMovies.prefix(8), id: \.id) { movie in
             NavigationLink(
-              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
+              destination: router.resolve(path: "/media-details")
+                .environmentObject(MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
               label: { MediaCardView(media: movie) }
             )
           }
@@ -34,7 +36,8 @@ public struct MoviesView: View {
         MediaSection(media: viewModel.latestMovies, title: "Latest Releases", redactedViewsNumber: 5, type: .portrait) {
           ForEach(viewModel.latestMovies.prefix(8), id: \.id) { movie in
             NavigationLink(
-              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
+              destination: router.resolve(path: "/media-details")
+                .environmentObject(MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
               label: { MediaCardView(media: movie) }
             )
           }
@@ -43,7 +46,8 @@ public struct MoviesView: View {
         MediaSection(media: viewModel.popularMovies, title: "Hits Box Office", redactedViewsNumber: 5, type: .portrait) {
           ForEach(viewModel.popularMovies.prefix(8), id: \.id) { movie in
             NavigationLink(
-              destination: MediaDetailsView(viewModel: MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
+              destination: router.resolve(path: "/media-details")
+                .environmentObject(MediaDetailsViewModel(media: movie, repository: .init(mediaType: .movie))),
               label: { MediaCardView(media: movie) }
             )
           }
